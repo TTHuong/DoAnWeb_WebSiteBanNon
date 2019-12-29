@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "QuanLyNguoiDung";
+    Layout = "~/Views/Layout/_LayoutAdmin.cshtml";
+}
+@section ThemThuVienCss{
+<link rel="stylesheet" href="/Content/css/index.css">
+<link rel="stylesheet" href="/Content/css/dataTables.bootstrap4.min.css">
+}
+@section ThemThuVienJs{
+<script src="/Content/js/jquery.dataTables.js"></script>
+<script src="/Content/js/dataTables.bootstrap4.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="/Content/js/datatables-demo.js"></script>
+}
+
+@using doanweb.Models;
+@model List<tbl_member>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Quản Lý Người Dùng</h1>
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <a class="btn btn-success ml-auto" href="@Url.Action("QuanLyNguoiDung_Them","Admin")"><i class="fas fa-plus"></i>  Thêm</a>
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tên Đăng Nhập</th>
+                            <th>Mật Khẩu</th>
+                            <th>Quyền Hạn</th>
+                            <th>Tên Khách Hàng</th>
+                            <th>Ngày Sinh</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Địa Chỉ</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Tên Đăng Nhập</th>
+                            <th>Mật Khẩu</th>
+                            <th>Quyền Hạn</th>
+                            <th>Tên Khách Hàng</th>
+                            <th>Ngày Sinh</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Địa Chỉ</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach(var item in Model)
+                        {
+                            <tr>
+                                <td>@item.TenDangNhap</td>
+                                <td>@item.MatKhau</td>
+                                <td>@item.QuyenHan</td>
+                                <td>@item.TenKhachHang</td>
+                                @if(item.NgaySinh!=null)
+                                {
+                                    <td>@item.NgaySinh.ToString().Substring(0,10)</td>
+                                }
+                                else
+                                {
+                                    <td>@item.NgaySinh</td>
+                                }
+                                <td>@item.SDT</td>
+                                <td>@item.DiaChi</td>
+                                <td>@item.Email</td>
+                                <td>
+                                    <a href="@Url.Action("QuanLyNguoiDung_Sua", "Admin", new { @MaSua = item.Id })" class="icon_tacvu">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="@Url.Action("QuanLyNguoiDung_Xoa", "Admin", new { @MaXoa = item.Id })" class="icon_tacvu_xoa" style="color: red;">
+                                        <i class="fas fa-times-circle"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebSiteBanDongHoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbl_donhang">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Id_User" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_User" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DiaChiNhanHang" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TenNguoiNhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_donhangloi" Relationship="Self.FK_tbl_donhang_tbl_donhangloi" FromRole="tbl_donhang" ToRole="tbl_donhangloi" />
+    <NavigationProperty Name="tbl_member" Relationship="Self.FK_tbl_donhang_tbl_member" FromRole="tbl_donhang" ToRole="tbl_member" />
+    <NavigationProperty Name="tbl_quatrinhgiaohang" Relationship="Self.FK_tbl_donhang_tbl_quatrinhgiaohang" FromRole="tbl_donhang" ToRole="tbl_quatrinhgiaohang" />
+    <NavigationProperty Name="tbl_thanhtoan" Relationship="Self.FK_tbl_donhang_tbl_thanhtoan" FromRole="tbl_donhang" ToRole="tbl_thanhtoan" />
+  </EntityType>
+  <EntityType Name="tbl_donhangloi">
+    <Key>
+      <PropertyRef Name="Id_DonHang" />
+    </Key>
+    <Property Name="Id_DonHang" Type="Int32" Nullable="false" />
+    <Property Name="NguyenNhan" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Id_NguoiKiemTraDonHang" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="TrangThai" Type="Int32" />
+    <NavigationProperty Name="tbl_donhang" Relationship="Self.FK_tbl_donhang_tbl_donhangloi" FromRole="tbl_donhangloi" ToRole="tbl_donhang" />
+    <NavigationProperty Name="tbl_member" Relationship="Self.FK_tbl_donhangloi_tbl_member" FromRole="tbl_donhangloi" ToRole="tbl_member" />
+  </EntityType>
+  <EntityType Name="tbl_giohang">
+    <Key>
+      <PropertyRef Name="Id_user" />
+      <PropertyRef Name="Id_MaSanPham" />
+    </Key>
+    <Property Name="Id_user" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Id_MaSanPham" Type="Int32" Nullable="false" />
+    <Property Name="SoLuongSanPham" Type="Int32" />
+    <Property Name="TrangThai" Type="Int32" />
+    <NavigationProperty Name="tbl_member" Relationship="Self.FK_tbl_giohang_tbl_member" FromRole="tbl_giohang" ToRole="tbl_member" />
+    <NavigationProperty Name="tbl_sanpham" Relationship="Self.FK_tbl_giohang_tbl_sanpham" FromRole="tbl_giohang" ToRole="tbl_sanpham" />
+  </EntityType>
+  <EntityType Name="tbl_Hmember">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="TenDangNhap" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TenDangNhap_Cu" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau_Cu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="QuyenHan" Type="Int32" />
+    <Property Name="QuyenHan_Cu" Type="Int32" />
+    <Property Name="TenKhachHang" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="TenKhachHang_Cu" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="NgaySinh_Cu" Type="DateTime" Precision="0" />
+    <Property Name="SDT" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+    <Property Name="SDT_Cu" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi_Cu" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Email_Cu" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NguoiThayDoi" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThayDoi" Type="DateTime" Precision="3" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_member">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="TenDangNhap" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="QuyenHan" Type="Int32" Nullable="false" />
+    <Property Name="TenKhachHang" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="SDT" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="tbl_donhang" Relationship="Self.FK_tbl_donhang_tbl_member" FromRole="tbl_member" ToRole="tbl_donhang" />
+    <NavigationProperty Name="tbl_donhangloi" Relationship="Self.FK_tbl_donhangloi_tbl_member" FromRole="tbl_member" ToRole="tbl_donhangloi" />
+    <NavigationProperty Name="tbl_giohang" Relationship="Self.FK_tbl_giohang_tbl_member" FromRole="tbl_member" ToRole="tbl_giohang" />
+    <NavigationProperty Name="tbl_Hslider" Relationship="Self.FK_tbl_Hslider_tbl_member" FromRole="tbl_member" ToRole="tbl_Hslider" />
+    <NavigationProperty Name="tbl_thanhtoan" Relationship="Self.FK_tbl_thanhtoan_tbl_member" FromRole="tbl_member" ToRole="tbl_thanhtoan" />
+  </EntityType>
+  <EntityType Name="tbl_nhasanxuat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNhaSanXuat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NuocSanXuat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_sanpham" Relationship="Self.FK_tbl_sanpham_tbl_nhasanxuat" FromRole="tbl_nhasanxuat" ToRole="tbl_sanpham" />
+  </EntityType>
+  <EntityType Name="tbl_quatrinhgiaohang">
+    <Key>
+      <PropertyRef Name="Id_DonHang" />
+    </Key>
+    <Property Name="Id_DonHang" Type="Int32" Nullable="false" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_donhang" Relationship="Self.FK_tbl_donhang_tbl_quatrinhgiaohang" FromRole="tbl_quatrinhgiaohang" ToRole="tbl_donhang" />
+  </EntityType>
+  <EntityType Name="tbl_sanpham">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSanPham" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NgayNhap" Type="DateTime" Precision="0" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="GiaTien" Type="Double" />
+    <Property Name="ChiTietSanPham" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NhaSanXuat" Type="Int32" />
+    <Property Name="LoaiSanPham" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AnhSanPham" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_giohang" Relationship="Self.FK_tbl_giohang_tbl_sanpham" FromRole="tbl_sanpham" ToRole="tbl_giohang" />
+    <NavigationProperty Name="tbl_nhasanxuat" Relationship="Self.FK_tbl_sanpham_tbl_nhasanxuat" FromRole="tbl_sanpham" ToRole="tbl_nhasanxuat" />
+  </EntityType>
+  <EntityType Name="tbl_slider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSlider" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDungChiTiet" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DuongDan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_thanhtoan">
+    <Key>
+      <PropertyRef Name="Id_DonHang" />
+    </Key>
+    <Property Name="Id_DonHang" Type="Int32" Nullable="false" />
+    <Property Name="NguoiDung" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThanhToan" Type="DateTime" Precision="0" />
+    <Property Name="TrangThai" Type="Int32" />
+    <NavigationProperty Name="tbl_donhang" Relationship="Self.FK_tbl_donhang_tbl_thanhtoan" FromRole="tbl_thanhtoan" ToRole="tbl_donhang" />
+    <NavigationProperty Name="tbl_member" Relationship="Self.FK_tbl_thanhtoan_tbl_member" FromRole="tbl_thanhtoan" ToRole="tbl_member" />
+  </EntityType>
+  <EntityType Name="tbl_anhchitietsanpham">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="DuongDan" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DuongDan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Hanhchitietsanpham">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="DuongDan" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DuongDan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DuongDan_Cu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiThayDoi" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThayDoi" Type="DateTime" Precision="0" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Hdonhang">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Id_User" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id_User" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DiaChiNhanHang" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChiNhanHang_Cu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TenNguoiNhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenNguoiNhan_Cu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiThayDoi" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThayDoi" Type="DateTime" Precision="0" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Hdonhangloi">
+    <Key>
+      <PropertyRef Name="Id_DonHang" />
+    </Key>
+    <Property Name="Id_DonHang" Type="Int32" Nullable="false" />
+    <Property Name="NguyenNhan" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NguyenNhan_Cu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Id_NguoiKiemTraDonHang" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Id_NguoiKiemTraDonHang_Cu" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="TrangThai" Type="Int32" />
+    <Property Name="TrangThai_Cu" Type="Int32" />
+    <Property Name="NguoiThayDoi" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThayDoi" Type="DateTime" Precision="0" />
+    <Property Name="TrangThaiLichSu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Hgiohang">
+    <Key>
+      <PropertyRef Name="Id_user" />
+      <PropertyRef Name="Id_MaSanPham" />
+    </Key>
+    <Property Name="Id_user" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Id_MaSanPham" Type="Int32" Nullable="false" />
+    <Property Name="SoLuongSanPham" Type="Int32" />
+    <Property Name="SoLuongSanPham_Cu" Type="Int32" />
+    <Property Name="TrangThai" Type="Int32" />
+    <Property Name="TrangThai_Cu" Type="Int32" />
+    <Property Name="NguoiThayDoi" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThayDoi" Type="DateTime" Precision="0" />
+    <Property Name="TrangThaiLichSu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Hnhasanxuat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="TenNhaSanXuat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TenNhaSanXuat_Cu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NuocSanXuat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NuocSanXuat_Cu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiThayDoi" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThayDoi" Type="DateTime" Precision="0" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Hquatrinhgiaohang">
+    <Key>
+      <PropertyRef Name="Id_DonHang" />
+    </Key>
+    <Property Name="Id_DonHang" Type="Int32" Nullable="false" />
+    <Property Name="TrangThai" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai_Cu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiThayDoi" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThayDoi" Type="DateTime" Precision="0" />
+    <Property Name="TrangThaiLichSu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Hsanpham">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="TenSanPham" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TenSanPham_Cu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NgayNhap" Type="DateTime" Precision="0" />
+    <Property Name="NgayNhap_Cu" Type="DateTime" Precision="0" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="SoLuong_Cu" Type="Int32" />
+    <Property Name="GiaTien" Type="Double" />
+    <Property Name="GiaTien_Cu" Type="Double" />
+    <Property Name="ChiTietSanPham" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChiTietSanPham_Cu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NhaSanXuat" Type="Int32" />
+    <Property Name="NhaSanXuat_Cu" Type="Int32" />
+    <Property Name="LoaiSanPham" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiSanPham_Cu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AnhSanPham" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AnhSanPham_Cu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiThayDoi" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThayDoi" Type="DateTime" Precision="0" />
+    <Property Name="TrangThaiLichSu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Hslider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="TenSlider" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenSlider_Cu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDungChiTiet" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDungChiTiet_Cu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DuongDan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DuongDan_Cu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiThayDoi" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThayDoi" Type="DateTime" Precision="0" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_member" Relationship="Self.FK_tbl_Hslider_tbl_member" FromRole="tbl_Hslider" ToRole="tbl_member" />
+  </EntityType>
+  <EntityType Name="tbl_Hthanhtoan">
+    <Key>
+      <PropertyRef Name="Id_DonHang" />
+    </Key>
+    <Property Name="Id_DonHang" Type="Int32" Nullable="false" />
+    <Property Name="NguoiDung" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NguoiDung_Cu" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThanhToan" Type="DateTime" Precision="0" />
+    <Property Name="NgayThanhToan_Cu" Type="DateTime" Precision="0" />
+    <Property Name="TrangThai" Type="Int32" />
+    <Property Name="TrangThai_Cu" Type="Int32" />
+    <Property Name="NguoiThayDoi" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="NgayThayDoi" Type="DateTime" Precision="0" />
+    <Property Name="TrangThaiLichSu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_tbl_donhang_tbl_donhangloi">
+    <End Role="tbl_donhangloi" Type="Self.tbl_donhangloi" Multiplicity="1" />
+    <End Role="tbl_donhang" Type="Self.tbl_donhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_donhangloi">
+        <PropertyRef Name="Id_DonHang" />
+      </Principal>
+      <Dependent Role="tbl_donhang">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_donhang_tbl_member">
+    <End Role="tbl_member" Type="Self.tbl_member" Multiplicity="1" />
+    <End Role="tbl_donhang" Type="Self.tbl_donhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_member">
+        <PropertyRef Name="TenDangNhap" />
+      </Principal>
+      <Dependent Role="tbl_donhang">
+        <PropertyRef Name="Id_User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_donhang_tbl_quatrinhgiaohang">
+    <End Role="tbl_quatrinhgiaohang" Type="Self.tbl_quatrinhgiaohang" Multiplicity="1" />
+    <End Role="tbl_donhang" Type="Self.tbl_donhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_quatrinhgiaohang">
+        <PropertyRef Name="Id_DonHang" />
+      </Principal>
+      <Dependent Role="tbl_donhang">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_donhang_tbl_thanhtoan">
+    <End Role="tbl_thanhtoan" Type="Self.tbl_thanhtoan" Multiplicity="1" />
+    <End Role="tbl_donhang" Type="Self.tbl_donhang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_thanhtoan">
+        <PropertyRef Name="Id_DonHang" />
+      </Principal>
+      <Dependent Role="tbl_donhang">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_donhangloi_tbl_member">
+    <End Role="tbl_member" Type="Self.tbl_member" Multiplicity="0..1" />
+    <End Role="tbl_donhangloi" Type="Self.tbl_donhangloi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_member">
+        <PropertyRef Name="TenDangNhap" />
+      </Principal>
+      <Dependent Role="tbl_donhangloi">
+        <PropertyRef Name="Id_NguoiKiemTraDonHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_giohang_tbl_member">
+    <End Role="tbl_member" Type="Self.tbl_member" Multiplicity="1" />
+    <End Role="tbl_giohang" Type="Self.tbl_giohang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_member">
+        <PropertyRef Name="TenDangNhap" />
+      </Principal>
+      <Dependent Role="tbl_giohang">
+        <PropertyRef Name="Id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_giohang_tbl_sanpham">
+    <End Role="tbl_sanpham" Type="Self.tbl_sanpham" Multiplicity="1" />
+    <End Role="tbl_giohang" Type="Self.tbl_giohang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_sanpham">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_giohang">
+        <PropertyRef Name="Id_MaSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Hslider_tbl_member">
+    <End Role="tbl_member" Type="Self.tbl_member" Multiplicity="0..1" />
+    <End Role="tbl_Hslider" Type="Self.tbl_Hslider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_member">
+        <PropertyRef Name="TenDangNhap" />
+      </Principal>
+      <Dependent Role="tbl_Hslider">
+        <PropertyRef Name="NguoiThayDoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_thanhtoan_tbl_member">
+    <End Role="tbl_member" Type="Self.tbl_member" Multiplicity="0..1" />
+    <End Role="tbl_thanhtoan" Type="Self.tbl_thanhtoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_member">
+        <PropertyRef Name="TenDangNhap" />
+      </Principal>
+      <Dependent Role="tbl_thanhtoan">
+        <PropertyRef Name="NguoiDung" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_sanpham_tbl_nhasanxuat">
+    <End Role="tbl_nhasanxuat" Type="Self.tbl_nhasanxuat" Multiplicity="0..1" />
+    <End Role="tbl_sanpham" Type="Self.tbl_sanpham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_nhasanxuat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_sanpham">
+        <PropertyRef Name="NhaSanXuat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WebSiteBanDongHoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tbl_donhang" EntityType="Self.tbl_donhang" />
+    <EntitySet Name="tbl_donhangloi" EntityType="Self.tbl_donhangloi" />
+    <EntitySet Name="tbl_giohang" EntityType="Self.tbl_giohang" />
+    <EntitySet Name="tbl_Hmember" EntityType="Self.tbl_Hmember" />
+    <EntitySet Name="tbl_member" EntityType="Self.tbl_member" />
+    <EntitySet Name="tbl_nhasanxuat" EntityType="Self.tbl_nhasanxuat" />
+    <EntitySet Name="tbl_quatrinhgiaohang" EntityType="Self.tbl_quatrinhgiaohang" />
+    <EntitySet Name="tbl_sanpham" EntityType="Self.tbl_sanpham" />
+    <EntitySet Name="tbl_slider" EntityType="Self.tbl_slider" />
+    <EntitySet Name="tbl_thanhtoan" EntityType="Self.tbl_thanhtoan" />
+    <EntitySet Name="tbl_anhchitietsanpham" EntityType="Self.tbl_anhchitietsanpham" />
+    <EntitySet Name="tbl_Hanhchitietsanpham" EntityType="Self.tbl_Hanhchitietsanpham" />
+    <EntitySet Name="tbl_Hdonhang" EntityType="Self.tbl_Hdonhang" />
+    <EntitySet Name="tbl_Hdonhangloi" EntityType="Self.tbl_Hdonhangloi" />
+    <EntitySet Name="tbl_Hgiohang" EntityType="Self.tbl_Hgiohang" />
+    <EntitySet Name="tbl_Hnhasanxuat" EntityType="Self.tbl_Hnhasanxuat" />
+    <EntitySet Name="tbl_Hquatrinhgiaohang" EntityType="Self.tbl_Hquatrinhgiaohang" />
+    <EntitySet Name="tbl_Hsanpham" EntityType="Self.tbl_Hsanpham" />
+    <EntitySet Name="tbl_Hslider" EntityType="Self.tbl_Hslider" />
+    <EntitySet Name="tbl_Hthanhtoan" EntityType="Self.tbl_Hthanhtoan" />
+    <AssociationSet Name="FK_tbl_donhang_tbl_donhangloi" Association="Self.FK_tbl_donhang_tbl_donhangloi">
+      <End Role="tbl_donhangloi" EntitySet="tbl_donhangloi" />
+      <End Role="tbl_donhang" EntitySet="tbl_donhang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_donhang_tbl_member" Association="Self.FK_tbl_donhang_tbl_member">
+      <End Role="tbl_member" EntitySet="tbl_member" />
+      <End Role="tbl_donhang" EntitySet="tbl_donhang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_donhang_tbl_quatrinhgiaohang" Association="Self.FK_tbl_donhang_tbl_quatrinhgiaohang">
+      <End Role="tbl_quatrinhgiaohang" EntitySet="tbl_quatrinhgiaohang" />
+      <End Role="tbl_donhang" EntitySet="tbl_donhang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_donhang_tbl_thanhtoan" Association="Self.FK_tbl_donhang_tbl_thanhtoan">
+      <End Role="tbl_thanhtoan" EntitySet="tbl_thanhtoan" />
+      <End Role="tbl_donhang" EntitySet="tbl_donhang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_donhangloi_tbl_member" Association="Self.FK_tbl_donhangloi_tbl_member">
+      <End Role="tbl_member" EntitySet="tbl_member" />
+      <End Role="tbl_donhangloi" EntitySet="tbl_donhangloi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_giohang_tbl_member" Association="Self.FK_tbl_giohang_tbl_member">
+      <End Role="tbl_member" EntitySet="tbl_member" />
+      <End Role="tbl_giohang" EntitySet="tbl_giohang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_giohang_tbl_sanpham" Association="Self.FK_tbl_giohang_tbl_sanpham">
+      <End Role="tbl_sanpham" EntitySet="tbl_sanpham" />
+      <End Role="tbl_giohang" EntitySet="tbl_giohang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Hslider_tbl_member" Association="Self.FK_tbl_Hslider_tbl_member">
+      <End Role="tbl_member" EntitySet="tbl_member" />
+      <End Role="tbl_Hslider" EntitySet="tbl_Hslider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_thanhtoan_tbl_member" Association="Self.FK_tbl_thanhtoan_tbl_member">
+      <End Role="tbl_member" EntitySet="tbl_member" />
+      <End Role="tbl_thanhtoan" EntitySet="tbl_thanhtoan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_sanpham_tbl_nhasanxuat" Association="Self.FK_tbl_sanpham_tbl_nhasanxuat">
+      <End Role="tbl_nhasanxuat" EntitySet="tbl_nhasanxuat" />
+      <End Role="tbl_sanpham" EntitySet="tbl_sanpham" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

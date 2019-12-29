@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "LichSuQuanLyGioHang";
+    Layout = "~/Views/Layout/_LayoutAdmin.cshtml";
+}
+
+@section ThemThuVienCss{
+    <link rel="stylesheet" href="/Content/css/index.css">
+    <link rel="stylesheet" href="/Content/css/dataTables.bootstrap4.min.css">
+}
+@section ThemThuVienJs{
+    <script src="/Content/js/jquery.dataTables.js"></script>
+    <script src="/Content/js/dataTables.bootstrap4.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/Content/js/datatables-demo.js"></script>
+}
+
+@using doanweb.Models;
+@model List<tbl_Hgiohang>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Lịch Sử Quản Lý Giỏ Hàng</h1>
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tên Khách Hàng</th>
+                            <th>Tên Sản Phẩm Mua</th>
+                            <th>Số Lượng Sản Phẩm Mua</th>
+                            <th>Ngày Mua</th>
+                            <th>Trạng Thái Đơn Hàng</th>
+                            <th>Người Thay Đổi</th>
+                            <th>Trạng Thái Thay Đổi</th>
+                            <th>Ngày Thay Đổi</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Tên Khách Hàng</th>
+                            <th>Tên Sản Phẩm Mua</th>
+                            <th>Số Lượng Sản Phẩm Mua</th>
+                            <th>Ngày Mua</th>
+                            <th>Trạng Thái Đơn Hàng</th>
+                            <th>Người Thay Đổi</th>
+                            <th>Trạng Thái Thay Đổi</th>
+                            <th>Ngày Thay Đổi</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th>@item.TenKhachHang</th>
+                                <th>@item.TenSanPham</th>
+                                <th>@item.SoLuongSanPham</th>
+                                <th>@item.NgayNhap.ToString().Substring(0,10)</th>
+                                <th>@item.TrangThai</th>
+                                <th>@item.TenNguoiThayDoi</th>
+                                <th>@item.TrangThaiThayDoi</th>
+                                <th>@item.NgayThayDoi.ToString().Substring(0, 10)</th>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+

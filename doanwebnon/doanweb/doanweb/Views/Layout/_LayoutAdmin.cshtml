@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Nón Đẹp HTT</title>
+    <link rel="shortcut icon" type="image/png" href="/Content/images/icon/Lo_go.png" />
+    
+    <link href="~/Content/font/all.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/font/css.css" rel="stylesheet">
+    
+    <link href="~/Content/css/sb-admin-2.css" rel="stylesheet">
+    @RenderSection("ThemThuVienCss", false)
+</head>
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Admin")">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <img src="/Content/images/icon/Lo_go.png" alt="logo">
+                </div>
+                <div class="sidebar-brand-text mx-3">TRANG ADMIN<sup>HiHi</sup></div>
+            </a>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="@Url.Action("Index","Admin")">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Thống Kê WebSite</span>
+                </a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                CHỨC NĂNG
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="Admin_QuanLyNguoiDung.html" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" aria-controls="collapse_1">
+                    <i class="fas fa-users"></i>
+                    <span>Quản Lý Người Dùng</span>
+                </a>
+                <div id="collapse_1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Người Dùng</h6>
+                        <a class="collapse-item" href="@Url.Action("QuanLyNguoiDung","Admin")">Người Dùng</a>
+                        <a class="collapse-item" href="@Url.Action("LichSuQuanLyNguoiDung","Admin_QLLICHSU")">Lịch Sử Thay Đổi Người<br> Dùng</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" aria-controls="collapse_2">
+                    <i class="fas fa-industry"></i>
+                    <span>Quản Lý Nhà Sản Xuất</span>
+                </a>
+                <div id="collapse_2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Nhà Sản Xuất</h6>
+                        <a class="collapse-item" href="@Url.Action("QuanLyNhaSanXuat","Admin_QLNSX")">Nhà Sản Xuất</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" aria-controls="collapse_4">
+                    <i class="fab fa-product-hunt"></i>
+                    <span>Quản Lý Sản Phẩm</span>
+                </a>
+                <div id="collapse_4" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Quản Lý Sản Phẩm</h6>
+                        <a class="collapse-item" href="@Url.Action("QuanLySanPham","Admin_QLSP")">Sản Phẩm</a>
+                    </div>
+                </div>
+            </li>
+            <!-- nav item qua trình giao hàng -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_7" aria-expanded="true" aria-controls="collapse_7">
+                    <i class="fab fa-opencart"></i>
+                    <span>Quản Lý Giỏ Hàng</span>
+                </a>
+                <div id="collapse_7" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Giỏ Hảng</h6>
+                        <a class="collapse-item" href="@Url.Action("QuanLyGioHang","Admin_QLGH")">Giỏ Hàng</a>
+                        <a class="collapse-item" href="@Url.Action("LichSuQuanLyGioHang", "Admin_QLLICHSU")">Lịch Sử Thay Đổi Giỏ Hàng</a>
+                    </div>
+                </div>
+            </li>
+            <!-- nav item thanh toán -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_8" aria-expanded="true" aria-controls="collapse_8">
+                    <i class="far fa-images"></i>
+                    <span>Quản Lý Slide</span>
+                </a>
+                <div id="collapse_8" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Slide</h6>
+                        <a class="collapse-item" href="@Url.Action("QuanLySlide","Admin_QLSLIDE")">Quản Lý Slide</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse_9" aria-expanded="true" aria-controls="collapse_8">
+                    <i class="far fa-image"></i>
+                    <span>Quản Lý Ảnh Chi Tiết</span>
+                </a>
+                <div id="collapse_9" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Ảnh Chi Tiết</h6>
+                        <a class="collapse-item" href="@Url.Action("QuanLyAnhChiTiet","Admin_QLACT")">Quản Lý Ảnh Chi Tiết</a>
+                    </div>
+                </div>
+            </li>
+            <!-- nav item - quá trình giao hàng  -->
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Nav Item - Alerts -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link" href="@Url.Action("Index","Home")" >
+                            <i class="fas fa-home "></i>
+                        </a>
+                    </li>
+                    @Html.Action("ThongBaoDonHangMoi_Admin_PartialView", "Layout")
+
+                        @*<!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-envelope fa-fw"></i>
+                    <!-- Counter - Messages -->
+                    <span class="badge badge-danger badge-counter">7</span>
+                </a>
+                <!-- Dropdown - Messages -->
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                    <h6 class="dropdown-header">
+                        Tin Nhắn
+                    </h6>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div class="font-weight-bold">
+                            <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                            <div class="status-indicator"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                            <div class="small text-gray-500">Jae Chun · 1d</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                            <div class="status-indicator bg-warning"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                </div>
+            </li>*@
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <!-- Nav Item - User Information -->
+<li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            @Html.Action("TenAdmin_PartialView","Layout")
+                            <img class="img-profile rounded-circle" src="https://cdn.pixabay.com/photo/2015/11/24/10/52/gears-1059756_960_720.png">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="@Url.Action("QuanLyNguoiDung_Sua", "Admin", new {@MaSua=Convert.ToInt32( Session["taikhoan"]) } )">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Thông Tin Cá Nhân
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Đăng Xuất
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- End of Topbar -->
+            @RenderBody()
+            <!-- End of Main Content -->
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Nhóm Phát Triển HQN</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded " href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- js cua cai nut này là sb-admin-2.js -->
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Bạn Có Chắc Muốn Đăng Xuất ?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Nếu Bạn Đăng Xuất Xin Hẹn Gặp Lại Bạn Lần Sau</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
+                    <a class="btn btn-primary" href="@Url.Action("DangXuat","DangXuat")">Đăng Xuất</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="/Content/js/jquery-3.4.1.min.js"></script>
+    <script src="/Content/js/bootstrap.bundle.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/Content/js/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/Content/js/sb-admin-2.js"></script>
+    <!-- Page level plugins -->
+    <script src="/Content/js/Chart.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="/Content/js/chart-area-demo.js"></script>
+    <script src="/Content/js/chart-pie-demo.js"></script>
+    @RenderSection("ThemThuVienJs", false)
+    @RenderSection("Scripts", false)
+</body>
+</html>
+<noembed>

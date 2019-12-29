@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "QuanLyGioHang_DonHangThanhCong";
+    Layout = "~/Views/Layout/_LayoutAdmin.cshtml";
+}
+
+@section ThemThuVienCss{
+    <link rel="stylesheet" href="/Content/css/index.css">
+    <link rel="stylesheet" href="/Content/css/dataTables.bootstrap4.min.css">
+}
+@section ThemThuVienJs{
+    <script src="/Content/js/jquery.dataTables.js"></script>
+    <script src="/Content/js/dataTables.bootstrap4.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/Content/js/datatables-demo.js"></script>
+}
+
+@using doanweb.Models;
+@model List<tbl_giohang>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Danh Sách Đơn Hàng Thanh Toán Thành Công</h1>
+    <a class="btn btn-success ml-auto" href="@Url.Action("QuanLyGioHang","Admin_QLGH")"><i class="fas fa-long-arrow-alt-left"></i>  Trở Về</a>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tên Người Mua</th>
+                            <th>Ảnh Sản Phẩm</th>
+                            <th>Số Lượng Sản Phẩm Mua</th>
+                            <th>Ngày Thanh Toán</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Tên Người Mua</th>
+                            <th>Ảnh Sản Phẩm</th>
+                            <th>Số Lượng Sản Phẩm Mua</th>
+                            <th>Ngày Thanh Toán</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.TenKhachHang</td>
+                                <td>
+                                    <img src="@Url.Content("~/Content/images/sanpham/"+@item.AnhSanPham)" class="img-thumbnail" style="width:80px;height:80px;" alt="@item.TenSanPham">
+                                </td>
+                                <td>@item.SoLuongSanPham</td>
+                                @if (item.NgayNhap != null)
+                                {
+                                    <td>@item.NgayNhap.ToString().Substring(0, 10)</td>
+                                }
+                                else
+                                {
+                                    <td>@item.NgayNhap</td>
+                                }
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

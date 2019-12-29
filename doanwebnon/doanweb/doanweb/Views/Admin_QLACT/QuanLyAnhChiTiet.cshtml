@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "QuanLyAnhChiTiet";
+    Layout = "~/Views/Layout/_LayoutAdmin.cshtml";
+}
+
+@section ThemThuVienCss{
+    <link rel="stylesheet" href="/Content/css/index.css">
+    <link rel="stylesheet" href="/Content/css/dataTables.bootstrap4.min.css">
+}
+@section ThemThuVienJs{
+    <script src="/Content/js/jquery.dataTables.js"></script>
+    <script src="/Content/js/dataTables.bootstrap4.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/Content/js/datatables-demo.js"></script>
+}
+
+@using doanweb.Models;
+@model List<tbl_anhchitietsanpham>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Quản Lý Ảnh Chi Tiết Sản Phẩm</h1>
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <a class="btn btn-success ml-auto" href="@Url.Action("QuanLyAnhChiTiet_Them","Admin_QLACT")"><i class="fas fa-plus"></i>  Thêm</a>
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Ảnh Sản Phẩm</th>
+                            <th>Ảnh Chi Tiết Của Sản Phẩm</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Ảnh Sản Phẩm</th>
+                            <th>Ảnh Chi Tiết Của Sản Phẩm</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.TenSanPham</td>
+                                <td>
+                                    <img src="@Url.Content("~/Content/images/sanpham/"+@item.AnhSanPham)" class="img-thumbnail" style="width:80px;height:80px;" alt="@item.TenSanPham">
+                                </td>
+                                <td>
+                                    <img src="@Url.Content("~/Content/images/chitietsanpham/"+@item.DuongDan)" class="img-thumbnail" style="width:80px;height:80px;" alt="@item.TenSanPham">
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("QuanLyAnhChiTiet_Sua", "Admin_QLACT", new { @MaSua = item.Id })" class="icon_tacvu">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="@Url.Action("QuanLyAnhChiTiet_Xoa", "Admin_QLACT", new { @MaXoa = item.Id })" class="icon_tacvu_xoa" style="color: red;">
+                                        <i class="fas fa-times-circle"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

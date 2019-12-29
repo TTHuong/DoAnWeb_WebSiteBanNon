@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebSiteBanNonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_anhchitietsanpham">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Sp" Type="int" Nullable="false" />
+    <Property Name="DuongDan" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_giohang">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_user" Type="int" />
+    <Property Name="Id_MaSanPham" Type="int" />
+    <Property Name="SoLuongSanPham" Type="int" />
+    <Property Name="NgayNhap" Type="date" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Hgiohang">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenKhachHang" Type="nvarchar" MaxLength="500" />
+    <Property Name="TenSanPham" Type="nvarchar" MaxLength="500" />
+    <Property Name="SoLuongSanPham" Type="int" />
+    <Property Name="NgayNhap" Type="date" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenNguoiThayDoi" Type="nvarchar" MaxLength="500" />
+    <Property Name="TrangThaiThayDoi" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgayThayDoi" Type="date" />
+  </EntityType>
+  <EntityType Name="tbl_Hmember">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDangNhap" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="TenDangNhap_Cu" Type="nchar" MaxLength="100" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="100" />
+    <Property Name="MatKhau_Cu" Type="nvarchar" MaxLength="100" />
+    <Property Name="QuyenHan" Type="nvarchar" MaxLength="50" />
+    <Property Name="QuyenHan_Cu" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenKhachHang" Type="nvarchar" MaxLength="150" />
+    <Property Name="TenKhachHang_Cu" Type="nvarchar" MaxLength="150" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="NgaySinh_Cu" Type="date" />
+    <Property Name="SDT" Type="nchar" MaxLength="12" />
+    <Property Name="SDT_Cu" Type="nchar" MaxLength="12" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="150" />
+    <Property Name="DiaChi_Cu" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nchar" MaxLength="100" />
+    <Property Name="Email_Cu" Type="nchar" MaxLength="100" />
+    <Property Name="NguoiThayDoi" Type="nchar" MaxLength="100" />
+    <Property Name="NgayThayDoi" Type="date" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_member">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDangNhap" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="QuyenHan" Type="int" Nullable="false" />
+    <Property Name="TenKhachHang" Type="nvarchar" MaxLength="150" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="SDT" Type="nchar" MaxLength="12" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nchar" MaxLength="100" />
+    <Property Name="XacMinh" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_nhasanxuat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNhaSanXuat" Type="nvarchar" MaxLength="100" />
+    <Property Name="NuocSanXuat" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_sanpham">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenSanPham" Type="nvarchar" MaxLength="250" />
+    <Property Name="GiaTien" Type="float" />
+    <Property Name="ChiTietSanPham" Type="nvarchar(max)" />
+    <Property Name="NhaSanXuat" Type="int" />
+    <Property Name="LoaiSanPham" Type="nvarchar" MaxLength="50" />
+    <Property Name="AnhSanPham" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_slider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenSlider" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoiDungChiTiet" Type="nvarchar" MaxLength="100" />
+    <Property Name="DuongDan" Type="nvarchar(max)" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityContainer Name="WebSiteBanNonModelStoreContainer">
+    <EntitySet Name="tbl_anhchitietsanpham" EntityType="Self.tbl_anhchitietsanpham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_giohang" EntityType="Self.tbl_giohang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Hgiohang" EntityType="Self.tbl_Hgiohang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Hmember" EntityType="Self.tbl_Hmember" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_member" EntityType="Self.tbl_member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_nhasanxuat" EntityType="Self.tbl_nhasanxuat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_sanpham" EntityType="Self.tbl_sanpham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_slider" EntityType="Self.tbl_slider" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

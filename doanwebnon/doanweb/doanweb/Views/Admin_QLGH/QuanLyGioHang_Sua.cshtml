@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "QuanLyGioHang_Sua";
+    Layout = "~/Views/Layout/_LayoutAdmin.cshtml";
+}
+
+@section ThemThuVienCss{
+    <link rel="stylesheet" href="/Content/css/index.css">
+    <link rel="stylesheet" href="/Content/css/dataTables.bootstrap4.min.css">
+}
+@section ThemThuVienJs{
+    <script src="/Content/js/jquery.dataTables.js"></script>
+    <script src="/Content/js/dataTables.bootstrap4.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/Content/js/datatables-demo.js"></script>
+}
+@using doanweb.Models;
+@model tbl_giohang
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Thông Tin Giỏ Hàng</h1>
+    <a class="btn btn-success ml-auto" href="@Url.Action("QuanLyGioHang","Admin_QLGH")"><i class="fas fa-long-arrow-alt-left"></i>  Trở Về</a>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="container-fluid mt-3">
+                <h4 class="mb-2">@ViewBag.QLGH_S_TieuDe</h4>
+                <form method="post" action="@Url.Action("QuanLyGioHang_Sua", "Admin_QLGH", new {@MaSua=Model.Id })" role="form">
+                    <div class="form-row">
+
+                        <div class="form-group col-sm-6">
+                            <label for="TenNguoiMua">Tên Người Mua </label>
+                            <label class="form-control">@Model.TenKhachHang</label>
+                        </div>
+
+
+                        <div class="form-group col-sm-6">
+                            <label for="SoLuongSanPham">Số Lượng Sản Phẩm </label>
+                            <label class="form-control">@Model.SoLuongSanPham</label>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+
+                        <div class="form-group col-sm-6">
+                            <label for="NgayMua">Ngày Mua</label>
+                            <label class="form-control">@Model.NgayNhap</label>
+
+                        </div>
+
+                        <div class="form-group col-sm-6">
+                            <label for="TrangThai">Trạng Thái </label>
+                            <select id="TrangThai_S" name="TrangThai_S" class="form-control">
+                                <option selected value="3">Thanh Toán Thành Công</option>
+                                <option value="4">Thanh Toán Thất Bại</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group col-sm-4">
+                            <label for="AnhSanPham">Ảnh Sản Phẩm @ViewBag.QLGH_S_AnhSanPham</label>
+                            <img src="@Url.Content("~/Content/images/sanpham/"+@Model.AnhSanPham)" class="img-thumbnail" style="width:300px;height:300px;" alt="@Model.TenSanPham">
+
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"> Cập Nhật </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+

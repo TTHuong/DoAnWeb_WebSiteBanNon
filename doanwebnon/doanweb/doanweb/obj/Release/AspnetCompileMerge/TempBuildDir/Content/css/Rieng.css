@@ -1,0 +1,91 @@
+.lo_go{
+width: 130px;
+height: 75px;
+}
+
+.anh_san_pham_menu{
+	width: 130px;
+	height: 250px;
+}
+.left{
+	border: none;
+}
+.frm_menu_timkiem{
+width:auto;
+height:auto;
+text-align: center;
+
+}
+.txt_menu_timkiem{
+	width:150px;
+	height:40px;
+	padding-left: 2rem;
+	border: 1px solid #FF570C;
+	background-color: #ffffff;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	transition: .7s linear;
+}
+.txt_menu_timkiem:focus{
+transition: .7s linear;
+width: 370px;
+}
+.btn_menu_timkiem{
+	width: 40px;
+	height: 40px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+	border: 1px solid #FF570C;
+	background-color: #ffffff;
+	
+}
+.icon_menu_timkiem{
+	width: 20px;
+	height: 20px;
+}
+.footer{
+	position: relative;
+	height: 400px;
+	width: auto;
+	background-color: #363839;
+	padding-top: 20px;
+	margin: 0px;
+}
+.footer ul li{
+	list-style: none;
+	float: left;
+}
+.anh_logo_footer{
+	height: 80px;
+}
+.chu_footer{
+	line-height: 25px;
+	color: #838080;
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 1.1rem;
+	transition: 1.1s linear;
+}
+.chu_footer:hover{
+	color: #ABC911;
+	transition: 1.1s linear;
+}
+.slide_anh_footer{
+	width: auto;
+    height: 300px;
+}
+.icon_tacvu{
+	color: red !important;
+}
+
+/* reponsive */
+@media (max-width: 768px) {
+    .footer{
+		height: 1000px;
+	}
+	.footer ul li{
+		margin-bottom: 3%;
+	}
+	.khung_facebook{
+		text-align: center;
+	}
+}

@@ -1,0 +1,249 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_LayoutAdmin.cshtml";
+}
+@using doanweb.PublicClass
+@model BieuDoIndex
+<div id="content">
+    
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Thống Kê</h1>
+
+            @*<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>*@
+        
+        </div>
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Doanh Thu( Tháng )</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.doanhthuthangA_id VN</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Doanh Thu( Năm )</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.doanhthunamA_id VN</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class=" fa-2x text-gray-300">VN</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-info shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Số Đơn Hàng Chờ Duyệt</div>
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@ViewBag.sodonchoduyetA_id</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="progress progress-sm mr-2">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: @ViewBag.sodonchoduyetA_Ve_id%" aria-valuenow="@ViewBag.sodonchoduyetA_Ve_id" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Số Đơn Hàng Lỗi</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.sodonhangloiA_id</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content Row -->
+        <div class="row">
+            <!-- đây là biểu đồ doanh thu hình lượng sóng trong trang amin để chỉnh nó thì vô file chart-area-demo.js -->
+            <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Biểu Đồ Doanh Thu( Năm )</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            
+                            <input value="@ViewBag.doanhthuA_thang1" type="button" id="thang1" style="display:none;" />
+                            <input value="@ViewBag.doanhthuA_thang2" type="button" id="thang2" style="display:none;" />
+                            <input value="@ViewBag.doanhthuA_thang3" type="button" id="thang3" style="display:none;" />
+                            <input value="@ViewBag.doanhthuA_thang4" type="button" id="thang4" style="display:none;" />
+                            <input value="@ViewBag.doanhthuA_thang5" type="button" id="thang5" style="display:none;" />
+                            <input value="@ViewBag.doanhthuA_thang6" type="button" id="thang6" style="display:none;" />
+                            <input value="@ViewBag.doanhthuA_thang7" type="button" id="thang7" style="display:none;" />
+                            <input value="@ViewBag.doanhthuA_thang8" type="button" id="thang8" style="display:none;" />
+                            <input value="@ViewBag.doanhthuA_thang9" type="button" id="thang9" style="display:none;" />
+                            <input value="@ViewBag.doanhthuA_thang10" type="button" id="thang10" style="display:none;" />
+                            <input value="@ViewBag.doanhthuA_thang11" type="button" id="thang11" style="display:none;" />
+                            <input value="@ViewBag.doanhthuA_thang12" type="button" id="thang12" style="display:none;" />
+
+                            <canvas id="myAreaChart"></canvas>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- đây là cái biểu đồ tròn ở trang admin để chỉnh sửa nó thì vô file js pie-chart-demo.js  -->
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Sản Phẩm Bán Chạy Nhất( Tháng / %)</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        
+
+                        <div class="chart-pie pt-4 pb-2">
+                            <input value="@ViewBag.BieuDoTronA_slsp1" type="button" id="sp1" style="display:none;" class="@ViewBag.BieuDoTronA_sp1" />
+                            <input value="@ViewBag.BieuDoTronA_slsp2" type="button" id="sp2" style="display:none;" class="@ViewBag.BieuDoTronA_sp2" />
+                            <input value="@ViewBag.BieuDoTronA_slsp3" type="button" id="sp3" style="display:none;" class="@ViewBag.BieuDoTronA_sp3" />
+                            <input value="@ViewBag.BieuDoTronA_slspcl" type="button" id="sp4" style="display:none;" />
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-left small">
+                            @if (ViewBag.BieuDoTronA_sp1 != "")
+                            {
+
+                                <span class="mr-2">
+                                    <i class="fas fa-circle text-primary"></i>
+                                    @ViewBag.BieuDoTronA_sp1
+                                </span>
+                                <br />
+                            }
+                            @if (ViewBag.BieuDoTronA_sp2 != "")
+                            {
+
+                                <span class="mr-2">
+                                    <i class="fas fa-circle text-success"></i>
+                                    @ViewBag.BieuDoTronA_sp2
+                                </span>
+                                <br />
+                            }
+                            @if (ViewBag.BieuDoTronA_sp3 != "")
+                            {
+
+                                <span class="mr-2">
+                                    <i class="fas fa-circle text-info"></i>
+                                    @ViewBag.BieuDoTronA_sp3
+                                </span>
+                                <br />
+                            }
+                            @if (ViewBag.BieuDoTronA_slspcl != 0)
+                            {
+
+                                <span class="mr-2">
+                                    <i class="fas fa-circle text-danger"></i> Sản Phẩm Khác
+                                </span>
+                            }
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content Row -->
+        <div class="row">
+            <!-- Content Column -->
+            <div class="col-lg-6 mb-4">
+                <!-- Project Card Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Bảng Phân Tích Số Liệu ( Tháng )</h6>
+                    </div>
+                    
+
+                    <div class="card-body">
+
+                        <h4 class="small font-weight-bold">Số Đơn Hàng Đang Nằm Trong Giỏ Hàng<span class="float-right">@ViewBag.BangSoLieu_Admin_giohang<i class="fas fa-percent"></i></span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: @ViewBag.BangSoLieu_Admin_giohang%" aria-valuenow="@ViewBag.BangSoLieu_Admin_giohang" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        <h4 class="small font-weight-bold">Số Đơn Hàng Đang Chờ Thanh Toán<span class="float-right">@ViewBag.BangSoLieu_Admin_donhang<i class="fas fa-percent"></i></span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: @ViewBag.BangSoLieu_Admin_donhang%" aria-valuenow="@ViewBag.BangSoLieu_Admin_donhang" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        <h4 class="small font-weight-bold">Số Đơn Hàng Thanh Toán Thành Công<span class="float-right">@ViewBag.BangSoLieu_Admin_donhangthanhcong<i class="fas fa-percent"></i></span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" role="progressbar" style="width: @ViewBag.BangSoLieu_Admin_donhangthanhcong%" aria-valuenow="@ViewBag.BangSoLieu_Admin_donhangthanhcong" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        <h4 class="small font-weight-bold">Số Đơn Hàng Thanh Toán Thất Bại<span class="float-right">@ViewBag.BangSoLieu_Admin_donhangthatbai<i class="fas fa-percent"></i></span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: @ViewBag.BangSoLieu_Admin_donhangthatbai%" aria-valuenow="@ViewBag.BangSoLieu_Admin_donhangthatbai" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <!-- Illustrations -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Danh Sách Khách Hàng Mới</h6>
+                    </div>
+                    @Html.Action("KhachHangMoi_Admin_PartialView","Admin")
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</div>

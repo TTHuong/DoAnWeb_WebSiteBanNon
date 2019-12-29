@@ -1,0 +1,19 @@
+﻿@using doanweb.Models;
+@model List<tbl_anhchitietsanpham>
+
+@{int so = 1;}
+@foreach(var item in Model)
+{
+    if (so == 1)
+    {
+        <li class="active"><a data-target="#pic-@so" data-toggle="tab"><img src="@Url.Content("~/Content/images/chitietsanpham/"+item.DuongDan)"></a>
+        </li>  
+    }
+    else
+    {
+        <li><a data-target="#pic-@so" data-toggle="tab"><img src="@Url.Content("~/Content/images/chitietsanpham/"+item.DuongDan)" ></a>
+         </li>
+    }
+    
+    so++;
+}

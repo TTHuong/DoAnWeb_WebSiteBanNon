@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "LichSuQuanLyNguoiDung";
+    Layout = "~/Views/Layout/_LayoutAdmin.cshtml";
+}
+
+@section ThemThuVienCss{
+    <link rel="stylesheet" href="/Content/css/index.css">
+    <link rel="stylesheet" href="/Content/css/dataTables.bootstrap4.min.css">
+}
+@section ThemThuVienJs{
+    <script src="/Content/js/jquery.dataTables.js"></script>
+    <script src="/Content/js/dataTables.bootstrap4.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/Content/js/datatables-demo.js"></script>
+}
+
+@using doanweb.Models;
+@model List<tbl_Hmember>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Lịch Sử Quản Lý Người Dùng</h1>
+
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tên Đăng Nhập Mới</th>
+                            <th>Tên Đăng Nhập Cũ</th>
+                            <th>Mật Khẩu Mới</th>
+                            <th>Mật Khẩu Cũ</th>
+                            <th>Quyền Hạn Mới</th>
+                            <th>Quyền Hạn Cũ</th>
+                            <th>Tên Khách Hàng Mới</th>
+                            <th>Tên Khách Hàng Cũ</th>
+                            <th>Ngày Sinh Mới</th>
+                            <th>Ngày Sinh Cũ</th>
+                            <th>Số Điện Thoại Mới</th>
+                            <th>Số Điện Thoại Cũ</th>
+                            <th>Địa Chỉ Mới</th>
+                            <th>Địa Chỉ Cũ</th>
+                            <th>Email Mới</th>
+                            <th>Email Cũ</th>
+                            <th>Người Đã Thay Đổi</th>
+                            <th>Ngày Thay Đổi</th>
+                            <th>Trạng Thái Thay Đổi</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Tên Đăng Nhập Mới</th>
+                            <th>Tên Đăng Nhập Cũ</th>
+                            <th>Mật Khẩu Mới</th>
+                            <th>Mật Khẩu Cũ</th>
+                            <th>Quyền Hạn Mới</th>
+                            <th>Quyền Hạn Cũ</th>
+                            <th>Tên Khách Hàng Mới</th>
+                            <th>Tên Khách Hàng Cũ</th>
+                            <th>Ngày Sinh Mới</th>
+                            <th>Ngày Sinh Cũ</th>
+                            <th>Số Điện Thoại Mới</th>
+                            <th>Số Điện Thoại Cũ</th>
+                            <th>Địa Chỉ Mới</th>
+                            <th>Địa Chỉ Cũ</th>
+                            <th>Email Mới</th>
+                            <th>Email Cũ</th>
+                            <th>Người Đã Thay Đổi</th>
+                            <th>Ngày Thay Đổi</th>
+                            <th>Trạng Thái Thay Đổi</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th>@item.TenDangNhap</th>
+                                <th>@item.TenDangNhap_Cu</th>
+                                <th>@item.MatKhau</th>
+                                <th>@item.MatKhau_Cu</th>
+                                <th>@item.QuyenHan</th>
+                                <th>@item.QuyenHan_Cu</th>
+                                <th>@item.TenKhachHang</th>
+                                <th>@item.TenKhachHang_Cu</th>
+                                <th>@item.NgaySinh.ToString().Substring(0, 10)</th>
+                                <th>@item.NgaySinh_Cu.ToString().Substring(0, 10)</th>
+                                <th>@item.SDT</th>
+                                <th>@item.SDT_Cu</th>
+                                <th>@item.DiaChi</th>
+                                <th>@item.DiaChi_Cu</th>
+                                <th>@item.Email</th>
+                                <th>@item.Email_Cu</th>
+                                <th>@item.NguoiThayDoi</th>
+                                <th>@item.NgayThayDoi.ToString().Substring(0, 10)</th>
+                                <th>@item.TrangThai</th>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

@@ -1,0 +1,63 @@
+body{
+    position: relative;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.logo_menu{
+    width:100px;
+    height: 60px;
+}
+.thanh_menu{
+    background-color:#2C2C2C;
+    
+}
+.navbar-dark{
+    color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+.fontchu a{
+    color: #000000;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+.icon_menu_dangnhap{
+    font-size: 20px;
+    color: #FBB923;
+}
+.hieu_ung_gay_nhu_y{
+    width: 150px;
+    transition: .8s linear;
+}
+
+.hieu_ung_gay_nhu_y:focus{
+    width: 500px;
+    transition: .8s linear;
+}
+/* doan code này dành cho slide dung de trinh chieu */
+.slide_anh_lon{
+    width: auto;
+    height: 400px;
+}
+.carousel-indicators li {
+    text-indent: 0px;
+    text-align: center;
+    color: red;
+    margin: 0 2px;
+    width: 50px;
+    height: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    line-height: 30px;
+    background-color: #00B5AD;
+    transition: all 0.25s ease;
+}
+.carousel-indicators .active, .hover {
+    width: 60px;
+    height: 15px;
+    background-color: #FBB923;
+}

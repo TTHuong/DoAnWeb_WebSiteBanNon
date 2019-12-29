@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Layout/_LayoutNguoiDung.cshtml";
+}
+@using doanweb.Models;
+@model tbl_member
+
+<div class="limiter" style="margin-top: 4%;">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+            <form class="login100-form validate-form flex-sb flex-w" method="POST" action="@Url.Action("DangNhap","DangNhap")" name="frmdangnhap">
+                <span class="login100-form-title p-b-53">
+                    ĐĂNG NHẬP @ViewBag.tieude_dn
+                </span>
+                <a href="@Url.Action("DangNhapFacebook","DangNhap")" class="btn-face m-b-20">
+                    <img src="~/Content/images/icon/icon-facebook.png" alt="FACEBOOK" style="margin-right: 20px;">
+                    Facebook
+                </a>
+
+                <a href="@Url.Action("DangKyGoogle", "DangKy")" class="btn-google m-b-20">
+                    <img src="~/Content/images/icon/icon-google.png" alt="GOOGLE">
+                    Google
+                </a>
+
+                <div class="p-t-31 p-b-9">
+                    <span class="txt1">
+                        Tên Đăng Nhập @ViewBag.tendangnhap_dn
+                    </span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Tên Đăng Nhập Không Được Bỏ Trống !">
+                    @Html.TextBoxFor(model => model.TenDangNhap, new {@class="input100" ,@type="text" ,@name="username" })
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="p-t-13 p-b-9">
+                    <span class="txt1">
+                        Mật Khẩu
+                    </span>
+
+                    <a href="@Url.Action("QuenMatKhau","QuenMatKhau")" class="txt2 bo1 m-l-5 txt3">
+                        Quên Mật Khẩu ?
+                    </a>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Mật Khẩu Không Được Bỏ Trống !">
+                    @Html.TextBoxFor(model => model.MatKhau, new {@class="input100" ,@type="password" ,@name="pass" })
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="container-login100-form-btn m-t-17">
+                    <button class="login100-form-btn" type="submit" name="sbdangnhap">
+                        Đăng Nhập
+                    </button>
+                </div>
+
+                <div class="w-full text-center p-t-55">
+                    <span class="txt2">
+                        Chưa Có Tài Khoản ?
+                    </span>
+
+                    <a href="@Url.Action("DangKy","Dangky")" class="txt2 bo1 txt3">
+                        Đăng Ký Ngay
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="dropDownSelect1"></div>

@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "QuanLyNguoiDung_Sua";
+    Layout = "~/Views/Layout/_LayoutAdmin.cshtml";
+}
+
+@section ThemThuVienCss{
+    <link rel="stylesheet" href="/Content/css/index.css">
+    <link rel="stylesheet" href="/Content/css/dataTables.bootstrap4.min.css">
+}
+@section ThemThuVienJs{
+    <script src="/Content/js/jquery.dataTables.js"></script>
+    <script src="/Content/js/dataTables.bootstrap4.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/Content/js/datatables-demo.js"></script>
+}
+@using doanweb.Models;
+@model tbl_member
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Thông Tin Tài Khoản</h1>
+    <a class="btn btn-success ml-auto" href="@Url.Action("QuanLyNguoiDung","Admin")"><i class="fas fa-long-arrow-alt-left"></i>  Trở Về</a>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="container-fluid mt-3">
+                <h4 class="mb-2">@ViewBag.QLND_S_TieuDe</h4>
+                <form method="post" action="@Url.Action("QuanLyNguoiDung_Sua", "Admin", new {@MaSua=Model.Id })" role="form">
+                    <div class="form-row">
+
+                        <div class="form-group col-sm-6">
+                            <label for="TenDangNhap">Tên Đăng Nhập @ViewBag.QLND_S_TenDangNhap</label>
+                            @Html.TextBoxFor(model => model.TenDangNhap, new { @type = "text", @class = "form-control", @id = "TenDangNhap_S", @placeholder = "VD: donghohqn",@value=Model.TenDangNhap })
+
+                        </div>
+
+
+                        <div class="form-group col-sm-6">
+                            <label for="MatKhau">Mật Khẩu @ViewBag.QLND_S_MatKhau</label>
+                            @Html.TextBoxFor(model => model.MatKhau, new { @type = "password", @class = "form-control", @id = "MatKhau_S", @placeholder = "VD: DongHoHQN1234@" })
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Email">Email @ViewBag.QLND_S_Email</label>
+                        @Html.TextBoxFor(model => model.Email, new { @type = "email", @class = "form-control", @id = "Email_S", @placeholder = "VD: th966391@gmail.com",@value=Model.Email })
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group col-sm-6">
+                            <label for="TenKhachHang">Ten Khách Hàng @ViewBag.QLND_S_TenKhachHang</label>
+                            @Html.TextBoxFor(model => model.TenKhachHang, new { @type = "text", @class = "form-control", @id = "TenKhachHang_S", @placeholder = "VD: Trần Văn A",@value=Model.TenKhachHang })
+
+                        </div>
+
+
+                        <div class="form-group col-sm-6">
+                            <label for="NgaySinh">Ngày Sinh @ViewBag.QLND_S_NgaySinh</label>
+                            @{
+                                if (Model.NgaySinh != null)
+                                {
+                                    @Html.TextBoxFor(model => model.NgaySinh, new { @class = "form-control", @type = "date", @name = "birthday_S", @id = "birthday_S", @min = "1940-01-01", @Value = Model.NgaySinh.Value.ToString("yyyy-MM-dd") })
+                                }
+                                else
+                                {
+                                    @Html.TextBoxFor(model => model.NgaySinh, new { @class = "form-control", @type = "date", @name = "birthday_S", @id = "birthday_S", @min = "1940-01-01", @Value = "" })
+                                }
+                            }
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="DiaChi">Địa Chỉ @ViewBag.QLND_S_DiaChi</label>
+                        @Html.TextAreaFor(model => model.DiaChi, new { @type = "text", @class = "form-control", @id = "DiaChi_S", @placeholder = "VD: Đại Học Thủ Dầu Một , Bình Dương", @rows = "3" ,@value=Model.DiaChi})
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-sm-4">
+                            <label for="SDT">Số Điện Thoại @ViewBag.QLND_S_SDT</label>
+                            @Html.TextBoxFor(model => model.SDT, new { @type = "text", @class = "form-control", @id = "SDT_S", @placeholder = "VD: 0958232671",@value=Model.SDT })
+
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label for="QuyenHan">Quyền Hạn @ViewBag.QLND_S_QuyenHan</label>
+                            <select id="QuyenHan_S" name="QuyenHan" class="form-control">
+                                @if(Convert.ToInt32(Model.QuyenHan)==1)
+                                {
+                                    <option selected value="1">Khách Hàng</option>
+                                    <option value="2">Admin</option>
+                                }
+                                else
+                                {
+                                    <option value="1">Khách Hàng</option>
+                                    <option selected value="2">Admin</option>
+                                }
+                            </select>
+
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary"> Cập Nhật </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

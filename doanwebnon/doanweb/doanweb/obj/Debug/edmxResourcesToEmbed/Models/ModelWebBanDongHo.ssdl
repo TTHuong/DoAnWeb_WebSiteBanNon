@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebSiteBanDongHoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebSiteBanDongHo.dbo.tbl_anhchitietsanpham' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_anhchitietsanpham">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="DuongDan" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DuongDan" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_donhang">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Id_User" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_User" Type="int" Nullable="false" />
+    <Property Name="TongTien" Type="money" />
+    <Property Name="DiaChiNhanHang" Type="nvarchar" MaxLength="200" />
+    <Property Name="TenNguoiNhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_NhanVienGiaoHang" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_donhangloi">
+    <Key>
+      <PropertyRef Name="Id_DonHang" />
+    </Key>
+    <Property Name="Id_DonHang" Type="int" Nullable="false" />
+    <Property Name="NguyenNhan" Type="nvarchar" MaxLength="500" />
+    <Property Name="Id_NguoiKiemTraDonHang" Type="int" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_giohang">
+    <Key>
+      <PropertyRef Name="Id_user" />
+      <PropertyRef Name="Id_MaSanPham" />
+    </Key>
+    <Property Name="Id_user" Type="int" Nullable="false" />
+    <Property Name="Id_MaSanPham" Type="int" Nullable="false" />
+    <Property Name="SoLuongSanPham" Type="int" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebSiteBanDongHo.dbo.tbl_Hanhchitietsanpham' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Hanhchitietsanpham">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="DuongDan" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DuongDan" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NguoiThayDoi" Type="int" />
+    <Property Name="NgayThayDoi" Type="date" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebSiteBanDongHo.dbo.tbl_Hdonhang' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Hdonhang">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Id_User" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id_User" Type="int" Nullable="false" />
+    <Property Name="TongTien" Type="money" />
+    <Property Name="TongTien_Cu" Type="money" />
+    <Property Name="DiaChiNhanHang" Type="nvarchar" MaxLength="200" />
+    <Property Name="DiaChiNhanHang_Cu" Type="nvarchar" MaxLength="200" />
+    <Property Name="TenNguoiNhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenNguoiNhan_Cu" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_NhanVienGiaoHang" Type="int" />
+    <Property Name="Id_NhanVienGiaoHang_Cu" Type="int" />
+    <Property Name="NguoiThayDoi" Type="int" />
+    <Property Name="NgayThayDoi" Type="date" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebSiteBanDongHo.dbo.tbl_Hdonhangloi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Hdonhangloi">
+    <Key>
+      <PropertyRef Name="Id_DonHang" />
+    </Key>
+    <Property Name="Id_DonHang" Type="int" Nullable="false" />
+    <Property Name="NguyenNhan" Type="nvarchar" MaxLength="500" />
+    <Property Name="NguyenNhan_Cu" Type="nvarchar" MaxLength="500" />
+    <Property Name="Id_NguoiKiemTraDonHang" Type="int" />
+    <Property Name="Id_NguoiKiemTraDonHang_Cu" Type="int" />
+    <Property Name="TrangThai" Type="int" />
+    <Property Name="TrangThai_Cu" Type="int" />
+    <Property Name="NguoiThayDoi" Type="int" />
+    <Property Name="NgayThayDoi" Type="date" />
+    <Property Name="TrangThaiLichSu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebSiteBanDongHo.dbo.tbl_Hgiohang' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Hgiohang">
+    <Key>
+      <PropertyRef Name="Id_user" />
+      <PropertyRef Name="Id_MaSanPham" />
+    </Key>
+    <Property Name="Id_user" Type="int" Nullable="false" />
+    <Property Name="Id_MaSanPham" Type="int" Nullable="false" />
+    <Property Name="SoLuongSanPham" Type="int" />
+    <Property Name="SoLuongSanPham_Cu" Type="int" />
+    <Property Name="TrangThai" Type="int" />
+    <Property Name="TrangThai_Cu" Type="int" />
+    <Property Name="NguoiThayDoi" Type="int" />
+    <Property Name="NgayThayDoi" Type="date" />
+    <Property Name="TrangThaiLichSu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebSiteBanDongHo.dbo.tbl_Hmember' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Hmember">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TenDangNhap" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="TenDangNhap_Cu" Type="nchar" MaxLength="100" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="100" />
+    <Property Name="MatKhau_Cu" Type="nvarchar" MaxLength="100" />
+    <Property Name="QuyenHan" Type="int" />
+    <Property Name="QuyenHan_Cu" Type="int" />
+    <Property Name="CapDo" Type="int" />
+    <Property Name="CapDo_Cu" Type="int" />
+    <Property Name="NguoiThayDoi" Type="int" />
+    <Property Name="NgayThayDoi" Type="date" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebSiteBanDongHo.dbo.tbl_Hnhasanxuat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Hnhasanxuat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TenNhaSanXuat" Type="nvarchar" MaxLength="100" />
+    <Property Name="NuocSanXuat" Type="nvarchar" MaxLength="100" />
+    <Property Name="NguoiThayDoi" Type="int" />
+    <Property Name="NgayThayDoi" Type="date" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebSiteBanDongHo.dbo.tbl_Hquatrinhgiaohang' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Hquatrinhgiaohang">
+    <Key>
+      <PropertyRef Name="Id_DonHang" />
+    </Key>
+    <Property Name="Id_DonHang" Type="int" Nullable="false" />
+    <Property Name="TrangThai" Type="int" />
+    <Property Name="TrangThai_Cu" Type="int" />
+    <Property Name="NguoiThayDoi" Type="int" />
+    <Property Name="NgayThayDoi" Type="date" />
+    <Property Name="TrangThaiLichSu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebSiteBanDongHo.dbo.tbl_Hsanpham' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Hsanpham">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="AnhSanPham" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TenSanPham" Type="nvarchar" MaxLength="250" />
+    <Property Name="TenSanPham_Cu" Type="nvarchar" MaxLength="250" />
+    <Property Name="NgayNhap" Type="date" />
+    <Property Name="NgayNhap_Cu" Type="date" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="SoLuong_Cu" Type="int" />
+    <Property Name="GiaTien" Type="money" />
+    <Property Name="GiaTien_Cu" Type="money" />
+    <Property Name="TrangThai" Type="int" />
+    <Property Name="TrangThai_Cu" Type="int" />
+    <Property Name="ChiTietSanPham" Type="nvarchar(max)" />
+    <Property Name="ChiTietSanPham_Cu" Type="nvarchar(max)" />
+    <Property Name="NhaSanXuat" Type="int" />
+    <Property Name="NhaSanXuat_Cu" Type="int" />
+    <Property Name="LoaiSanPham" Type="nvarchar" MaxLength="50" />
+    <Property Name="LoaiSanPham_Cu" Type="nvarchar" MaxLength="50" />
+    <Property Name="AnhSanPham" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AnhSanPham_Cu" Type="nvarchar(max)" />
+    <Property Name="NguoiThayDoi" Type="int" />
+    <Property Name="NgayThayDoi" Type="date" />
+    <Property Name="TrangThaiLichSu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebSiteBanDongHo.dbo.tbl_Hslider' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Hslider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TenSlider" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoiDungChiTiet" Type="nvarchar" MaxLength="100" />
+    <Property Name="NguoiThayDoi" Type="int" />
+    <Property Name="NgayThayDoi" Type="date" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebSiteBanDongHo.dbo.tbl_Hthanhtoan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Hthanhtoan">
+    <Key>
+      <PropertyRef Name="Id_DonHang" />
+    </Key>
+    <Property Name="Id_DonHang" Type="int" Nullable="false" />
+    <Property Name="MaSoNganHang" Type="int" />
+    <Property Name="MaSoNganHang_Cu" Type="int" />
+    <Property Name="NgayThanhToan" Type="date" />
+    <Property Name="NgayThanhToan_Cu" Type="date" />
+    <Property Name="TrangThai" Type="int" />
+    <Property Name="TrangThai_Cu" Type="int" />
+    <Property Name="NguoiThayDoi" Type="int" />
+    <Property Name="NgayThayDoi" Type="date" />
+    <Property Name="TrangThaiLichSu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'WebSiteBanDongHo.dbo.tbl_Hthongtinnguoidung' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_Hthongtinnguoidung">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TenKhachHang" Type="nvarchar" MaxLength="150" />
+    <Property Name="TenKhachHang_Cu" Type="nvarchar" MaxLength="150" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="NgaySinh_Cu" Type="date" />
+    <Property Name="QueQuan" Type="nvarchar" MaxLength="100" />
+    <Property Name="QueQuan_Cu" Type="nvarchar" MaxLength="100" />
+    <Property Name="SDT" Type="nchar" MaxLength="12" />
+    <Property Name="SDT_Cu" Type="nchar" MaxLength="12" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="150" />
+    <Property Name="DiaChi_Cu" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nchar" MaxLength="100" />
+    <Property Name="Email_Cu" Type="nchar" MaxLength="100" />
+    <Property Name="AnhDaiDien" Type="int" />
+    <Property Name="AnhDaiDien_Cu" Type="int" />
+    <Property Name="NguoiThayDoi" Type="int" />
+    <Property Name="NgayThayDoi" Type="date" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_member">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDangNhap" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="QuyenHan" Type="int" Nullable="false" />
+    <Property Name="CapDo" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_nhasanxuat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNhaSanXuat" Type="nvarchar" MaxLength="100" />
+    <Property Name="NuocSanXuat" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_quatrinhgiaohang">
+    <Key>
+      <PropertyRef Name="Id_DonHang" />
+    </Key>
+    <Property Name="Id_DonHang" Type="int" Nullable="false" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_sanpham">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenSanPham" Type="nvarchar" MaxLength="250" />
+    <Property Name="NgayNhap" Type="date" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="GiaTien" Type="money" />
+    <Property Name="TrangThai" Type="int" />
+    <Property Name="ChiTietSanPham" Type="nvarchar(max)" />
+    <Property Name="NhaSanXuat" Type="int" />
+    <Property Name="LoaiSanPham" Type="nvarchar" MaxLength="50" />
+    <Property Name="AnhSanPham" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_slider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenSlider" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoiDungChiTiet" Type="nvarchar" MaxLength="100" />
+    <Property Name="DuongDan" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_thanhtoan">
+    <Key>
+      <PropertyRef Name="Id_DonHang" />
+    </Key>
+    <Property Name="Id_DonHang" Type="int" Nullable="false" />
+    <Property Name="MaSoNganHang" Type="int" />
+    <Property Name="NgayThanhToan" Type="date" />
+    <Property Name="TrangThai" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_thongtinnguoidung">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TenKhachHang" Type="nvarchar" MaxLength="150" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="QueQuan" Type="nvarchar" MaxLength="100" />
+    <Property Name="SDT" Type="nchar" MaxLength="12" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nchar" MaxLength="100" />
+    <Property Name="AnhDaiDien" Type="int" />
+  </EntityType>
+  <EntityContainer Name="WebSiteBanDongHoModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_donhang" EntityType="Self.tbl_donhang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_donhangloi" EntityType="Self.tbl_donhangloi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_giohang" EntityType="Self.tbl_giohang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_member" EntityType="Self.tbl_member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_nhasanxuat" EntityType="Self.tbl_nhasanxuat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_quatrinhgiaohang" EntityType="Self.tbl_quatrinhgiaohang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_sanpham" EntityType="Self.tbl_sanpham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_slider" EntityType="Self.tbl_slider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_thanhtoan" EntityType="Self.tbl_thanhtoan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_thongtinnguoidung" EntityType="Self.tbl_thongtinnguoidung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_anhchitietsanpham" EntityType="Self.tbl_anhchitietsanpham" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_anhchitietsanpham].[Id] AS [Id], 
+[tbl_anhchitietsanpham].[DuongDan] AS [DuongDan]
+FROM [dbo].[tbl_anhchitietsanpham] AS [tbl_anhchitietsanpham]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_Hanhchitietsanpham" EntityType="Self.tbl_Hanhchitietsanpham" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_Hanhchitietsanpham].[Id] AS [Id], 
+[tbl_Hanhchitietsanpham].[DuongDan] AS [DuongDan], 
+[tbl_Hanhchitietsanpham].[NguoiThayDoi] AS [NguoiThayDoi], 
+[tbl_Hanhchitietsanpham].[NgayThayDoi] AS [NgayThayDoi], 
+[tbl_Hanhchitietsanpham].[TrangThai] AS [TrangThai]
+FROM [dbo].[tbl_Hanhchitietsanpham] AS [tbl_Hanhchitietsanpham]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_Hdonhang" EntityType="Self.tbl_Hdonhang" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_Hdonhang].[Id] AS [Id], 
+[tbl_Hdonhang].[Id_User] AS [Id_User], 
+[tbl_Hdonhang].[TongTien] AS [TongTien], 
+[tbl_Hdonhang].[TongTien_Cu] AS [TongTien_Cu], 
+[tbl_Hdonhang].[DiaChiNhanHang] AS [DiaChiNhanHang], 
+[tbl_Hdonhang].[DiaChiNhanHang_Cu] AS [DiaChiNhanHang_Cu], 
+[tbl_Hdonhang].[TenNguoiNhan] AS [TenNguoiNhan], 
+[tbl_Hdonhang].[TenNguoiNhan_Cu] AS [TenNguoiNhan_Cu], 
+[tbl_Hdonhang].[Id_NhanVienGiaoHang] AS [Id_NhanVienGiaoHang], 
+[tbl_Hdonhang].[Id_NhanVienGiaoHang_Cu] AS [Id_NhanVienGiaoHang_Cu], 
+[tbl_Hdonhang].[NguoiThayDoi] AS [NguoiThayDoi], 
+[tbl_Hdonhang].[NgayThayDoi] AS [NgayThayDoi], 
+[tbl_Hdonhang].[TrangThai] AS [TrangThai]
+FROM [dbo].[tbl_Hdonhang] AS [tbl_Hdonhang]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_Hdonhangloi" EntityType="Self.tbl_Hdonhangloi" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_Hdonhangloi].[Id_DonHang] AS [Id_DonHang], 
+[tbl_Hdonhangloi].[NguyenNhan] AS [NguyenNhan], 
+[tbl_Hdonhangloi].[NguyenNhan_Cu] AS [NguyenNhan_Cu], 
+[tbl_Hdonhangloi].[Id_NguoiKiemTraDonHang] AS [Id_NguoiKiemTraDonHang], 
+[tbl_Hdonhangloi].[Id_NguoiKiemTraDonHang_Cu] AS [Id_NguoiKiemTraDonHang_Cu], 
+[tbl_Hdonhangloi].[TrangThai] AS [TrangThai], 
+[tbl_Hdonhangloi].[TrangThai_Cu] AS [TrangThai_Cu], 
+[tbl_Hdonhangloi].[NguoiThayDoi] AS [NguoiThayDoi], 
+[tbl_Hdonhangloi].[NgayThayDoi] AS [NgayThayDoi], 
+[tbl_Hdonhangloi].[TrangThaiLichSu] AS [TrangThaiLichSu]
+FROM [dbo].[tbl_Hdonhangloi] AS [tbl_Hdonhangloi]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_Hgiohang" EntityType="Self.tbl_Hgiohang" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_Hgiohang].[Id_user] AS [Id_user], 
+[tbl_Hgiohang].[Id_MaSanPham] AS [Id_MaSanPham], 
+[tbl_Hgiohang].[SoLuongSanPham] AS [SoLuongSanPham], 
+[tbl_Hgiohang].[SoLuongSanPham_Cu] AS [SoLuongSanPham_Cu], 
+[tbl_Hgiohang].[TrangThai] AS [TrangThai], 
+[tbl_Hgiohang].[TrangThai_Cu] AS [TrangThai_Cu], 
+[tbl_Hgiohang].[NguoiThayDoi] AS [NguoiThayDoi], 
+[tbl_Hgiohang].[NgayThayDoi] AS [NgayThayDoi], 
+[tbl_Hgiohang].[TrangThaiLichSu] AS [TrangThaiLichSu]
+FROM [dbo].[tbl_Hgiohang] AS [tbl_Hgiohang]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_Hmember" EntityType="Self.tbl_Hmember" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_Hmember].[Id] AS [Id], 
+[tbl_Hmember].[TenDangNhap] AS [TenDangNhap], 
+[tbl_Hmember].[TenDangNhap_Cu] AS [TenDangNhap_Cu], 
+[tbl_Hmember].[MatKhau] AS [MatKhau], 
+[tbl_Hmember].[MatKhau_Cu] AS [MatKhau_Cu], 
+[tbl_Hmember].[QuyenHan] AS [QuyenHan], 
+[tbl_Hmember].[QuyenHan_Cu] AS [QuyenHan_Cu], 
+[tbl_Hmember].[CapDo] AS [CapDo], 
+[tbl_Hmember].[CapDo_Cu] AS [CapDo_Cu], 
+[tbl_Hmember].[NguoiThayDoi] AS [NguoiThayDoi], 
+[tbl_Hmember].[NgayThayDoi] AS [NgayThayDoi], 
+[tbl_Hmember].[TrangThai] AS [TrangThai]
+FROM [dbo].[tbl_Hmember] AS [tbl_Hmember]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_Hnhasanxuat" EntityType="Self.tbl_Hnhasanxuat" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_Hnhasanxuat].[Id] AS [Id], 
+[tbl_Hnhasanxuat].[TenNhaSanXuat] AS [TenNhaSanXuat], 
+[tbl_Hnhasanxuat].[NuocSanXuat] AS [NuocSanXuat], 
+[tbl_Hnhasanxuat].[NguoiThayDoi] AS [NguoiThayDoi], 
+[tbl_Hnhasanxuat].[NgayThayDoi] AS [NgayThayDoi], 
+[tbl_Hnhasanxuat].[TrangThai] AS [TrangThai]
+FROM [dbo].[tbl_Hnhasanxuat] AS [tbl_Hnhasanxuat]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_Hquatrinhgiaohang" EntityType="Self.tbl_Hquatrinhgiaohang" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_Hquatrinhgiaohang].[Id_DonHang] AS [Id_DonHang], 
+[tbl_Hquatrinhgiaohang].[TrangThai] AS [TrangThai], 
+[tbl_Hquatrinhgiaohang].[TrangThai_Cu] AS [TrangThai_Cu], 
+[tbl_Hquatrinhgiaohang].[NguoiThayDoi] AS [NguoiThayDoi], 
+[tbl_Hquatrinhgiaohang].[NgayThayDoi] AS [NgayThayDoi], 
+[tbl_Hquatrinhgiaohang].[TrangThaiLichSu] AS [TrangThaiLichSu]
+FROM [dbo].[tbl_Hquatrinhgiaohang] AS [tbl_Hquatrinhgiaohang]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_Hsanpham" EntityType="Self.tbl_Hsanpham" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_Hsanpham].[Id] AS [Id], 
+[tbl_Hsanpham].[TenSanPham] AS [TenSanPham], 
+[tbl_Hsanpham].[TenSanPham_Cu] AS [TenSanPham_Cu], 
+[tbl_Hsanpham].[NgayNhap] AS [NgayNhap], 
+[tbl_Hsanpham].[NgayNhap_Cu] AS [NgayNhap_Cu], 
+[tbl_Hsanpham].[SoLuong] AS [SoLuong], 
+[tbl_Hsanpham].[SoLuong_Cu] AS [SoLuong_Cu], 
+[tbl_Hsanpham].[GiaTien] AS [GiaTien], 
+[tbl_Hsanpham].[GiaTien_Cu] AS [GiaTien_Cu], 
+[tbl_Hsanpham].[TrangThai] AS [TrangThai], 
+[tbl_Hsanpham].[TrangThai_Cu] AS [TrangThai_Cu], 
+[tbl_Hsanpham].[ChiTietSanPham] AS [ChiTietSanPham], 
+[tbl_Hsanpham].[ChiTietSanPham_Cu] AS [ChiTietSanPham_Cu], 
+[tbl_Hsanpham].[NhaSanXuat] AS [NhaSanXuat], 
+[tbl_Hsanpham].[NhaSanXuat_Cu] AS [NhaSanXuat_Cu], 
+[tbl_Hsanpham].[LoaiSanPham] AS [LoaiSanPham], 
+[tbl_Hsanpham].[LoaiSanPham_Cu] AS [LoaiSanPham_Cu], 
+[tbl_Hsanpham].[AnhSanPham] AS [AnhSanPham], 
+[tbl_Hsanpham].[AnhSanPham_Cu] AS [AnhSanPham_Cu], 
+[tbl_Hsanpham].[NguoiThayDoi] AS [NguoiThayDoi], 
+[tbl_Hsanpham].[NgayThayDoi] AS [NgayThayDoi], 
+[tbl_Hsanpham].[TrangThaiLichSu] AS [TrangThaiLichSu]
+FROM [dbo].[tbl_Hsanpham] AS [tbl_Hsanpham]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_Hslider" EntityType="Self.tbl_Hslider" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_Hslider].[Id] AS [Id], 
+[tbl_Hslider].[TenSlider] AS [TenSlider], 
+[tbl_Hslider].[NoiDungChiTiet] AS [NoiDungChiTiet], 
+[tbl_Hslider].[NguoiThayDoi] AS [NguoiThayDoi], 
+[tbl_Hslider].[NgayThayDoi] AS [NgayThayDoi], 
+[tbl_Hslider].[TrangThai] AS [TrangThai]
+FROM [dbo].[tbl_Hslider] AS [tbl_Hslider]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_Hthanhtoan" EntityType="Self.tbl_Hthanhtoan" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_Hthanhtoan].[Id_DonHang] AS [Id_DonHang], 
+[tbl_Hthanhtoan].[MaSoNganHang] AS [MaSoNganHang], 
+[tbl_Hthanhtoan].[MaSoNganHang_Cu] AS [MaSoNganHang_Cu], 
+[tbl_Hthanhtoan].[NgayThanhToan] AS [NgayThanhToan], 
+[tbl_Hthanhtoan].[NgayThanhToan_Cu] AS [NgayThanhToan_Cu], 
+[tbl_Hthanhtoan].[TrangThai] AS [TrangThai], 
+[tbl_Hthanhtoan].[TrangThai_Cu] AS [TrangThai_Cu], 
+[tbl_Hthanhtoan].[NguoiThayDoi] AS [NguoiThayDoi], 
+[tbl_Hthanhtoan].[NgayThayDoi] AS [NgayThayDoi], 
+[tbl_Hthanhtoan].[TrangThaiLichSu] AS [TrangThaiLichSu]
+FROM [dbo].[tbl_Hthanhtoan] AS [tbl_Hthanhtoan]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tbl_Hthongtinnguoidung" EntityType="Self.tbl_Hthongtinnguoidung" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tbl_Hthongtinnguoidung].[Id] AS [Id], 
+[tbl_Hthongtinnguoidung].[TenKhachHang] AS [TenKhachHang], 
+[tbl_Hthongtinnguoidung].[TenKhachHang_Cu] AS [TenKhachHang_Cu], 
+[tbl_Hthongtinnguoidung].[NgaySinh] AS [NgaySinh], 
+[tbl_Hthongtinnguoidung].[NgaySinh_Cu] AS [NgaySinh_Cu], 
+[tbl_Hthongtinnguoidung].[QueQuan] AS [QueQuan], 
+[tbl_Hthongtinnguoidung].[QueQuan_Cu] AS [QueQuan_Cu], 
+[tbl_Hthongtinnguoidung].[SDT] AS [SDT], 
+[tbl_Hthongtinnguoidung].[SDT_Cu] AS [SDT_Cu], 
+[tbl_Hthongtinnguoidung].[DiaChi] AS [DiaChi], 
+[tbl_Hthongtinnguoidung].[DiaChi_Cu] AS [DiaChi_Cu], 
+[tbl_Hthongtinnguoidung].[Email] AS [Email], 
+[tbl_Hthongtinnguoidung].[Email_Cu] AS [Email_Cu], 
+[tbl_Hthongtinnguoidung].[AnhDaiDien] AS [AnhDaiDien], 
+[tbl_Hthongtinnguoidung].[AnhDaiDien_Cu] AS [AnhDaiDien_Cu], 
+[tbl_Hthongtinnguoidung].[NguoiThayDoi] AS [NguoiThayDoi], 
+[tbl_Hthongtinnguoidung].[NgayThayDoi] AS [NgayThayDoi], 
+[tbl_Hthongtinnguoidung].[TrangThai] AS [TrangThai]
+FROM [dbo].[tbl_Hthongtinnguoidung] AS [tbl_Hthongtinnguoidung]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "QuanLyNhaSanXuat_Them";
+    Layout = "~/Views/Layout/_LayoutAdmin.cshtml";
+}
+
+@section ThemThuVienCss{
+    <link rel="stylesheet" href="/Content/css/index.css">
+    <link rel="stylesheet" href="/Content/css/dataTables.bootstrap4.min.css">
+}
+@section ThemThuVienJs{
+    <script src="/Content/js/jquery.dataTables.js"></script>
+    <script src="/Content/js/dataTables.bootstrap4.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/Content/js/datatables-demo.js"></script>
+}
+@using doanweb.Models;
+@model tbl_nhasanxuat
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Thông Tin Nhà Sản Xuất</h1>
+    <a class="btn btn-success ml-auto" href="@Url.Action("QuanLyNhaSanXuat","Admin_QLNSX")"><i class="fas fa-long-arrow-alt-left"></i>  Trở Về</a>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="container-fluid mt-3">
+                <h4 class="mb-2">@ViewBag.QLNSX_T_TieuDe</h4>
+                <form method="post" action="@Url.Action("QuanLyNhaSanXuat_Them","Admin_QLNSX")" role="form">
+                    <div class="form-row">
+
+                        <div class="form-group col-sm-6">
+                            <label for="TenNhaSanXuat">Tên Nhà Sản Xuất @ViewBag.QLNSX_T_TenNhaSanXuat</label>
+                            @Html.TextBoxFor(model => model.TenNhaSanXuat, new { @type = "text", @class = "form-control", @id = "TenNhaSanXuat_T", @placeholder = "VD: Adidas..." })
+
+                        </div>
+
+
+                        <div class="form-group col-sm-6">
+                            <label for="NuocSanXuat">Nước Sản Xuất @ViewBag.QLNSX_T_NuocSanXuat</label>
+                            @Html.TextBoxFor(model => model.NuocSanXuat, new { @type = "text", @class = "form-control", @id = "NuocSanXuat_T", @placeholder = "VD: Mỹ , Canada , Ý..." })
+
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary"> Thêm </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

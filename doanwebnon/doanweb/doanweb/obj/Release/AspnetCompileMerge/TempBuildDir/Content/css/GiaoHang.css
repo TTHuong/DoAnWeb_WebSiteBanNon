@@ -1,0 +1,60 @@
+.canhle_GiaoHang{
+    margin-top: 100px;
+    clear: both;
+    position: relative;
+}
+.column-labels .hienchu_tieude{
+    text-indent: 9999px;
+}
+.canhle_trai_tieude{
+    text-align: left;
+    margin-left: -70px;
+}
+.bochu_dola{
+    float: left;
+  width: 10%;
+  text-align: right;
+    
+  }
+  .bochu_dola::before{
+    content: '';
+  }
+  .bochu_X {
+    float: left;
+    width: 12%;
+  }
+  .bochu_X::after{
+      content: " VNĐ";
+  }
+  .NgayDat_Hang{
+    float: left;
+    width: 10%;
+  }
+  @media screen and (max-width: 650px) {
+
+    .bochu_dola{
+        float: right;
+        width: 100px;
+    }
+    .bochu_X {
+        clear: both;
+        width: 70px;
+      }
+      .NgayDat_Hang{
+        width: 100px;
+      }
+      .NgayDat_Hang::before{
+          content: "  ";
+      }
+  }
+  @media screen and (max-width: 350px) {
+      .bochu_dola{
+        float: right;
+        clear: left;
+        width: auto;
+        margin-top: 10px;
+      }
+      .product .bochu_dola:before {
+        content: '';
+      }
+  }

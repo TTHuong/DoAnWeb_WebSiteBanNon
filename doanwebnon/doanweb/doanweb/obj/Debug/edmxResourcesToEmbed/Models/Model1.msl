@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WebSiteBanNonModelStoreContainer" CdmEntityContainer="WebSiteBanNonEntities">
+    <EntitySetMapping Name="tbl_anhchitietsanpham">
+      <EntityTypeMapping TypeName="WebSiteBanNonModel.tbl_anhchitietsanpham">
+        <MappingFragment StoreEntitySet="tbl_anhchitietsanpham">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Sp" ColumnName="Id_Sp" />
+          <ScalarProperty Name="DuongDan" ColumnName="DuongDan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_giohang">
+      <EntityTypeMapping TypeName="WebSiteBanNonModel.tbl_giohang">
+        <MappingFragment StoreEntitySet="tbl_giohang">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_user" ColumnName="Id_user" />
+          <ScalarProperty Name="Id_MaSanPham" ColumnName="Id_MaSanPham" />
+          <ScalarProperty Name="SoLuongSanPham" ColumnName="SoLuongSanPham" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Hgiohang">
+      <EntityTypeMapping TypeName="WebSiteBanNonModel.tbl_Hgiohang">
+        <MappingFragment StoreEntitySet="tbl_Hgiohang">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="TenSanPham" ColumnName="TenSanPham" />
+          <ScalarProperty Name="SoLuongSanPham" ColumnName="SoLuongSanPham" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="TenNguoiThayDoi" ColumnName="TenNguoiThayDoi" />
+          <ScalarProperty Name="TrangThaiThayDoi" ColumnName="TrangThaiThayDoi" />
+          <ScalarProperty Name="NgayThayDoi" ColumnName="NgayThayDoi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Hmember">
+      <EntityTypeMapping TypeName="WebSiteBanNonModel.tbl_Hmember">
+        <MappingFragment StoreEntitySet="tbl_Hmember">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="TenDangNhap_Cu" ColumnName="TenDangNhap_Cu" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="MatKhau_Cu" ColumnName="MatKhau_Cu" />
+          <ScalarProperty Name="QuyenHan" ColumnName="QuyenHan" />
+          <ScalarProperty Name="QuyenHan_Cu" ColumnName="QuyenHan_Cu" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="TenKhachHang_Cu" ColumnName="TenKhachHang_Cu" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="NgaySinh_Cu" ColumnName="NgaySinh_Cu" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="SDT_Cu" ColumnName="SDT_Cu" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="DiaChi_Cu" ColumnName="DiaChi_Cu" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Email_Cu" ColumnName="Email_Cu" />
+          <ScalarProperty Name="NguoiThayDoi" ColumnName="NguoiThayDoi" />
+          <ScalarProperty Name="NgayThayDoi" ColumnName="NgayThayDoi" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_member">
+      <EntityTypeMapping TypeName="WebSiteBanNonModel.tbl_member">
+        <MappingFragment StoreEntitySet="tbl_member">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="QuyenHan" ColumnName="QuyenHan" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="XacMinh" ColumnName="XacMinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_nhasanxuat">
+      <EntityTypeMapping TypeName="WebSiteBanNonModel.tbl_nhasanxuat">
+        <MappingFragment StoreEntitySet="tbl_nhasanxuat">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TenNhaSanXuat" ColumnName="TenNhaSanXuat" />
+          <ScalarProperty Name="NuocSanXuat" ColumnName="NuocSanXuat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_sanpham">
+      <EntityTypeMapping TypeName="WebSiteBanNonModel.tbl_sanpham">
+        <MappingFragment StoreEntitySet="tbl_sanpham">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TenSanPham" ColumnName="TenSanPham" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+          <ScalarProperty Name="ChiTietSanPham" ColumnName="ChiTietSanPham" />
+          <ScalarProperty Name="NhaSanXuat" ColumnName="NhaSanXuat" />
+          <ScalarProperty Name="LoaiSanPham" ColumnName="LoaiSanPham" />
+          <ScalarProperty Name="AnhSanPham" ColumnName="AnhSanPham" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_slider">
+      <EntityTypeMapping TypeName="WebSiteBanNonModel.tbl_slider">
+        <MappingFragment StoreEntitySet="tbl_slider">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TenSlider" ColumnName="TenSlider" />
+          <ScalarProperty Name="NoiDungChiTiet" ColumnName="NoiDungChiTiet" />
+          <ScalarProperty Name="DuongDan" ColumnName="DuongDan" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

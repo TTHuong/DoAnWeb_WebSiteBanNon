@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "TimKiem";
+    Layout = "~/Views/Layout/_LayoutNguoiDung.cshtml";
+    
+    string TimKiem = Request.QueryString["key"];
+}
+
+@if (TimKiem == "")
+{
+    Url.Action("BaoLoiTrang", "SanPham");
+}
+else
+{
+    
+}

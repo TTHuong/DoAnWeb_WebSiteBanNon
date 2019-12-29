@@ -1,0 +1,7 @@
+﻿@using doanweb.Models;
+@model List<tbl_nhasanxuat>
+
+@foreach (var item in Model)
+{
+   <a class="dropdown-item" href="@Url.Action("XemTatCaSanPhamCuaCungNhaSanXuat", "Layout", new { @NSX=item.Id,@Loai="Đồng Hồ Nam"})">@item.TenNhaSanXuat</a>
+}

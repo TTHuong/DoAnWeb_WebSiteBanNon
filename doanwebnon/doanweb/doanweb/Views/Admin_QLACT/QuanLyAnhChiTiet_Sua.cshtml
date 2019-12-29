@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "QuanLyAnhChiTiet_Sua";
+    Layout = "~/Views/Layout/_LayoutAdmin.cshtml";
+}
+@section ThemThuVienCss{
+    <link rel="stylesheet" href="/Content/css/index.css">
+    <link rel="stylesheet" href="/Content/css/dataTables.bootstrap4.min.css">
+}
+@section ThemThuVienJs{
+    <script src="/Content/js/jquery.dataTables.js"></script>
+    <script src="/Content/js/dataTables.bootstrap4.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/Content/js/datatables-demo.js"></script>
+}
+@using doanweb.Models;
+@model tbl_anhchitietsanpham
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Thông Tin Ảnh Chi Tiết</h1>
+    <a class="btn btn-success ml-auto" href="@Url.Action("QuanLyAnhChiTiet","Admin_QLACT")"><i class="fas fa-long-arrow-alt-left"></i>  Trở Về</a>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="container-fluid mt-3">
+                <h4 class="mb-2">@ViewBag.QLACT_S_TieuDe</h4>
+                <form method="post" action="@Url.Action("QuanLyAnhChiTiet_Sua", "Admin_QLACT", new {@MaSua=Model.Id })" role="form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="TenSanPham">Tên Sản Phẩm @ViewBag.QLACT_S_TenSanPham</label>
+                        @Html.DropDownListFor(model => model.Id_Sp, (IEnumerable<SelectListItem>)ViewBag.ListSanPham, new { @class = "form-control", @id = "TenSanPham_ACT_S" })
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-4">
+                            <label for="AnhChiTiet">Ảnh Chi Tiết Số 1 @ViewBag.QLACT_S_AnhChiTiet</label>
+                            @Html.TextBoxFor(model => model.DuongDan, new { @type = "file", @class = "form-control", @id = "AnhChiTiet", @name = "AnhChiTiet" })
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label for="ThongBaoAnhChiTiet">Ảnh Sản Phẩm Chi Tiết Hiên Tại</label>
+                            <img src="@Url.Content("~/Content/images/chitietsanpham/"+@Model.DuongDan)" class="img-thumbnail" style="width:300px;height:300px;" >
+
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary"> Cập Nhật </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

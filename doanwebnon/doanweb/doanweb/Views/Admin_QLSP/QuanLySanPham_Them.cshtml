@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "QuanLySanPham_Them";
+    Layout = "~/Views/Layout/_LayoutAdmin.cshtml";
+}
+
+@section ThemThuVienCss{
+    <link rel="stylesheet" href="/Content/css/index.css">
+    <link rel="stylesheet" href="/Content/css/dataTables.bootstrap4.min.css">
+}
+@section ThemThuVienJs{
+    <script src="/Content/js/jquery.dataTables.js"></script>
+    <script src="/Content/js/dataTables.bootstrap4.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/Content/js/datatables-demo.js"></script>
+}
+@using doanweb.Models;
+@model tbl_sanpham
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Thông Tin Sản Phẩm</h1>
+    <a class="btn btn-success ml-auto" href="@Url.Action("QuanLySanPham","Admin_QLSP")"><i class="fas fa-long-arrow-alt-left"></i>  Trở Về</a>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="container-fluid mt-3">
+                <h4 class="mb-2">@ViewBag.QLSP_T_TieuDe</h4>
+                <form method="post" action="@Url.Action("QuanLySanPham_Them","Admin_QLSP")" role="form" enctype="multipart/form-data">
+                    <div class="form-row">
+
+                        <div class="form-group col-sm-6">
+                            <label for="TenSanPham">Tên Sản Phẩm @ViewBag.QLSP_T_TenSanPham</label>
+                            @Html.TextBoxFor(model => model.TenSanPham, new { @type = "text", @class = "form-control", @id = "TenSanPham_T", @placeholder = "VD: Đồng Hồ AAA.." })
+
+                        </div>
+
+
+                        <div class="form-group col-sm-6">
+                            <label for="GiaTien">Giá Tiền @ViewBag.QLSP_T_GiaTien</label>
+                            @Html.TextBoxFor(model => model.GiaTien, new { @type = "text", @class = "form-control", @id = "GiaTien_T", @placeholder = "VD: 1000000" })
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ChiTietSanPham">Chi Tiết Sản Phẩm @ViewBag.QLSP_T_ChiTietSanPham</label>
+                        @Html.TextAreaFor(model => model.ChiTietSanPham, new { @type = "text", @class = "form-control", @id = "ChiTietSanPham_T", @placeholder = "VD: đồng hồ ý chất liệu bền ...", @rows = "6" })
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group col-sm-5">
+                            <label for="NhaSanXuat">Nhà Sản Xuất @ViewBag.QLSP_T_NhaSanXuat</label>
+                            @Html.DropDownListFor(model => model.NhaSanXuat, (IEnumerable<SelectListItem>)ViewBag.ListNhaSanXuat, new { @class = "form-control", @id = "NhaSanXuat_T" })
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label for="LoaiSanPham">Loại Sản Phẩm @ViewBag.QLSP_T_LoaiSanPham</label>
+                            <select id="LoaiSanPham_T" name="LoaiSanPham" class="form-control">
+                                <option selected>Nón Nam</option>
+                                <option>Nón Nữ</option>
+                                <option>Nón Cặp</option>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label for="AnhSanPham">Ảnh Sản Phẩm @ViewBag.QLSP_T_AnhSanPham</label>
+                            @Html.TextBoxFor(model => model.AnhSanPham,htmlAttributes: new { @type = "file", @class = "form-control", @id = "AnhSanPham_T", @name = "AnhSanPham_T" })
+
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary"> Thêm </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->

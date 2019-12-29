@@ -1,0 +1,24 @@
+﻿@using doanweb.Models;
+@model List<tbl_anhchitietsanpham>
+
+@{int so = 1;}
+@foreach (var item in Model)
+{
+    if (so == 1)
+    {
+        <div class="tab-pane active" id="pic-@so">
+            <img src="@Url.Content("~/Content/images/chitietsanpham/" + item.DuongDan)" >
+        </div>
+    }
+    else if(so>5)
+    {
+        return;
+    }
+    else
+    {
+        <div class="tab-pane" id="pic-@so">
+            <img src="@Url.Content("~/Content/images/chitietsanpham/" + item.DuongDan)" >
+        </div>
+    }
+    so++;
+}

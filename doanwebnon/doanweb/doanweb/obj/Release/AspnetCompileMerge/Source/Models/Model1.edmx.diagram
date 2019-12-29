@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a1b0ac9a0da74b53b205b3185b4644a2" Name="Diagram1">
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_donhang" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_donhangloi" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_giohang" Width="1.5" PointX="7.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_Hmember" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_member" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_nhasanxuat" Width="1.5" PointX="2.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_quatrinhgiaohang" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_sanpham" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_slider" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_thanhtoan" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_anhchitietsanpham" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_Hanhchitietsanpham" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_Hdonhang" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_Hdonhangloi" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_Hgiohang" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_Hnhasanxuat" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_Hquatrinhgiaohang" Width="1.5" PointX="11.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_Hsanpham" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_Hslider" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebSiteBanDongHoModel.tbl_Hthanhtoan" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="WebSiteBanDongHoModel.FK_tbl_donhang_tbl_donhangloi" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSiteBanDongHoModel.FK_tbl_donhang_tbl_quatrinhgiaohang" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSiteBanDongHoModel.FK_tbl_donhang_tbl_thanhtoan" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSiteBanDongHoModel.FK_tbl_giohang_tbl_sanpham" ManuallyRouted="false" />
+        <AssociationConnector Association="WebSiteBanDongHoModel.FK_tbl_sanpham_tbl_nhasanxuat" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

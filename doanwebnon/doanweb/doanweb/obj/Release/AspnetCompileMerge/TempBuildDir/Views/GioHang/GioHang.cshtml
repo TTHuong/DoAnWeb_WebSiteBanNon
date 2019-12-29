@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Layout/_LayoutNguoiDung.cshtml";
+}
+@section ThemThuVienCss{
+<link rel="stylesheet" href="~/Content/css/giohangcss.css">
+}
+@section ThemThuVienJs{
+<script src="~/Content/js/GioHang.js"></script>
+}
+@model List<doanweb.Models.tbl_sanpham>
+
+<h1>Giỏ Hàng</h1>
+
+<div class="shopping-cart">
+
+    <div class="column-labels">
+        <label class="property_img">Ảnh Sản Phẩm</label>
+        <label class="product-details">Thông Tin Chi Tiết Sản Phẩm</label>
+        <label class="price">Giá / 1 Sản Phẩm</label>
+        <label class="product-quantity">Số Lượng</label>
+        <label class="product-removal">Xóa Sản Phẩm</label>
+        <label class="product-line-price">Tổng Tiền</label>
+    </div>
+    @{
+        float tongSoTien = 0;
+    }
+
+    @foreach(var item in Model)
+    {
+        
+        <div class="product">
+            <div class="property_img">
+                <img src="@Url.Content("~/Content/images/sanpham/"+item.AnhSanPham)">
+            </div>
+            <div class="product-details">
+                <div class="product-title">@item.TenSanPham</div>
+                <p class="product-description">
+                @item.ChiTietSanPham
+                </p>
+            </div>
+            <div class="price">@item.GiaTien</div>
+
+            <div class="product-quantity">
+                <form method="post" action="@Url.Action("GiamGioHang", "GioHang", new {@iMasp=item.Id })" style="float:left">
+                    <button class="remove-product giam" type="submit">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </form>
+                <label style="float:left;margin:0;">
+                    @item.SoLuongSanPham
+                </label>
+                <form method="post" action="@Url.Action("TangGioHang", "GioHang", new { @iMasp = item.Id })" style="float: left;">
+                    <button class="remove-product giam" type="submit">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </form>
+                @*<input type="number" value="@item.SoLuongSanPham" min="1" id="kiemtra_sosanpham" onchange="@Url.Action("XoaGioHang", "GioHang")">*@
+            </div>
+            <div class="product-removal">
+                <form method="post" action="@Url.Action("XoaGioHang", "GioHang", new { @iMasp = item.Id })">
+                    <button class="remove-product" type="submit">
+                        Xóa
+                    </button>
+                </form>
+            </div>
+            <div class="product-line-price">
+                @{
+                    float t = float.Parse(item.SoLuongSanPham.ToString()) * float.Parse(item.GiaTien.ToString());
+                    tongSoTien += t;
+                }
+                @t
+            </div>
+        </div>
+    }
+    
+    <div class="totals">
+        <div class="totals-item">
+            <label>Tổng Số Tiền Mua</label>
+            <div class="totals-value" id="cart-subtotal">
+                @tongSoTien
+            </div>
+        </div>
+        <div class="totals-item">
+            <label>Tiền Thuế (10%)</label>
+            <div class="totals-value" id="cart-tax">
+                @{
+                    float tienThue = tongSoTien * (float)0.1;
+                }
+                @tienThue
+            </div>
+        </div>
+        <div class="totals-item">
+            <label>Tiền Ship</label>
+            <div class="totals-value" id="cart-shipping">30</div>
+        </div>
+        <div class="totals-item totals-item-total">
+            <label>Tổng Cộng</label>
+            <div class="totals-value" id="cart-total">
+                @{
+                    float tongcong = tongSoTien + tienThue + 30;
+                }
+                @tongcong
+            </div>
+        </div>
+    </div>
+
+    <a href="@Url.Action("ThanhToan","GioHang")"><button class="checkout">Thanh Toán</button></a>
+
+</div>

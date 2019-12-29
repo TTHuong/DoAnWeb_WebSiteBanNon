@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "TatCaSanPham";
+    Layout = "~/Views/Layout/_LayoutNguoiDung.cshtml";
+}
+
+@using doanweb.Models;
+@model List<tbl_sanpham>
+
+<section class="listings">
+    <div class="wrapper">
+        <ul class="properties_list">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a href="@Url.Action("XemChiTiet", "SanPham", new { @MaSanPham = item.Id })">
+                        <img src="@Url.Content("~/Content/images/sanpham/"+item.AnhSanPham)" alt="@item.TenSanPham" title="@item.TenSanPham" class="property_img" />
+                    </a>
+                    <span class="price">@item.GiaTien</span>
+                    <div class="property_details">
+                        <h1>
+                            <a href="@Url.Action("XemChiTiet", "SanPham", new { @MaSanPham = item.Id })">@item.TenSanPham</a>
+                        </h1>
+                        @if (item.ChiTietSanPham.Length > 39)
+                        {
+                            <h2>@item.ChiTietSanPham.Substring(0, 30)...</h2>
+                        }
+                        else
+                        {
+                            <h2>@item.ChiTietSanPham</h2>
+                        }
+                        <form action="@Url.Action("ThemGioHang", "GioHang", new {@iMaSp=item.Id,@url=Request.Url.ToString() })" method="post" name="frmThemGioHang">
+                            <input class="item_add" type="submit" value="Cho Vào Giỏ" />
+                        </form>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</section>
+
