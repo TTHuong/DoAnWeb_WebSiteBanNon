@@ -1,0 +1,7 @@
+MỘT SỐ VẤN ĐỀ NHỎ BẠN SẼ GẶP KHI CHẠY CODE LÀ
+
+1/ FONTAWESOME SẼ CÓ 1 SỐ MÁY HIỆN RA BÌNH THƯỜNG 1 SỐ KHÔNG HIỆN
+
+2/KHI TẠO 2 SẢN PHẨM CÙNG 1 NHÀ SẢN XUẤT CÙNG 1 GIỚI TÍNH NÓ SẼ HIỆN LÊN TRÊN CHỖ LOẠI 1 NHÀ SẢN XUẤT MÀ 2 LẦN NÊN KHUYẾN CÁO NÊN CHO ÍT DỮ LIỆU THUI TẦM 5-6 SP LÀ ĐẸP
+
+3/ PHẦN THỐNG KÊ TRONG TRANG ADMIN  ,chạy bình thường trên máy nhưng K CHẠY TRÊN SERVER
